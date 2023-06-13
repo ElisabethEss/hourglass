@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import TimerController from "./timer_controller"
+application.register("timer", TimerController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
