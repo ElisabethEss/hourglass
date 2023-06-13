@@ -7,6 +7,7 @@ export default class extends Controller {
     console.log("Hello to this timer")
   }
 
+  // Download ring tone 
   // const bells = new Audio('./sounds/bell.wav');
 myInterval;
 state = true;
