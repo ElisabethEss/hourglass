@@ -8,12 +8,15 @@ body {
   color: black;
   // background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
   // background-size: cover;
+  margin: auto;
+  height: 100%;
+  max-width: 620px
 }
 
 
 button {
   position: relative;
-  top: 50px;
+  // top: 50px; it is conflicting with the menu bar when the phone screen that it will come out of the navbar
   font-size: 80%;
   text-transform: uppercase;
   letter-spacing: 1px;
