@@ -1,16 +1,19 @@
-<h2>This is the basic Pomodoro Timer</h2>
-
-<div class="container justify-content-center">
-  <div class="counter-container justify-content-center" data-controller="timer">
-    <div class="minutes" data-target="timer.minutes">25</div>
-    <div class="seconds" data-target="timer.seconds">00</div>
-    <button class="btn-start" data-action="click->timer#appTimer">Start</button>
-    <button class="btn-stop" data-action="click->timer#pauseTimer">Pause</button>
+<div class="main-card">
+  <h2>Pomodoro</h2>
+  <div class="container justify-content-center">
+    <div class="counter-container justify-content-center" data-controller="timer">
+      <div class="time-container">
+        <div class="minutes" data-target="timer.minutes">25</div>
+        <div class="seconds" data-target="timer.seconds">00</div>
+      </div>
+      <div class=timer-buttons>
+        <button class="btn-start" data-action="click->timer#appTimer">Start</button>
+        <button class="btn-stop" data-action="click->timer#pauseTimer">Pause</button>
+      </div>
+    </div>
   </div>
 </div>
 
-
-<div>
-  <h6>Break Time</h6>
-
+<div class="task-card">
+<h1>Tasks</h1>
 </div>
