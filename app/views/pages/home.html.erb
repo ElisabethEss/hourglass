@@ -1,16 +1,40 @@
 <h2>This is the basic Pomodoro Timer</h2>
 
-<div class="container justify-content-center">
-  <div class="counter-container justify-content-center" data-controller="timer">
-    <div class="minutes" data-target="timer.minutes">25</div>
-    <div class="seconds" data-target="timer.seconds">00</div>
-    <button class="btn-start" data-action="click->timer#appTimer">Start</button>
-    <button class="btn-stop" data-action="click->timer#pauseTimer">Pause</button>
+<div class="d-flex justify-content-around">
+
+<div class="d-flex justify-content-center">
+  <div class="counter-container d-flex justify-content-center flex-column" data-controller="timer">
+     <h5 class="timer-header">Your Work Time</h5>
+    <div class="d-flex justify-content-center">
+      <div class="minutes" data-target="timer.minutes">25</div>
+      <div><p>:</p></div>
+      <div class="seconds" data-target="timer.seconds">00</div>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <button class="btn-start" data-action="click->timer#appTimer">Start</button>
+      <button class="btn-stop" data-action="click->timer#pauseTimer">Pause</button>
+      <button class="btn-stop" data-action="click->timer#stopTimer">Stop</button>
+    </div>
   </div>
 </div>
 
 
-<div>
-  <h6>Break Time</h6>
+<div class="d-flex justify-content-center">
+  <div class="counter-container d-flex justify-content-center flex-column" data-controller="timer">
+     <h5 class="timer-header">Your Break Time</h5>
+    <div class="d-flex justify-content-center">
+      <div class="minutes" data-target="timer.minutes">5</div>
+      <div><p>:</p></div>
+      <div class="seconds" data-target="timer.seconds">00</div>
+    </div>
+
+    <div class="d-flex justify-content-around">
+      <button class="btn-start" data-action="click->timer#appBreak">Start</button>
+      <button class="btn-stop" data-action="click->timer#pauseBreak">Pause</button>
+      <button class="btn-stop" data-action="click->timer#pauseBreak">Stop</button>
+    </div>
+  </div>
+</div>
 
 </div>
