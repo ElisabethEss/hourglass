@@ -5,7 +5,6 @@ export default class extends Controller {
 
   connect() {
     console.log("Hello to this timer")
-    console.log("Hello Hello")
   }
 
   // Download ring tone
@@ -13,17 +12,18 @@ export default class extends Controller {
   myInterval; // used to store intervall ID for timer
   state = true; // flag to track whether the timer is currently running or not
   trigger = false;
-// define method 'appTimer'
-appTimer() {
+  storeTime = this.minutesTarget.textContent
+ // define method 'appTimer'
+  appTimer() {
   // sessionAmount is assigned the value of the 'minutes' target's text content
-  let sessionAmount = " "
+    let sessionAmount = " "
 
 
-  const minuteDiv = this.minutesTarget
-  const secondDiv = this.secondsTarget
+    const minuteDiv = this.minutesTarget
+    const secondDiv = this.secondsTarget
 
-  sessionAmount = Number.parseInt(this.minutesTarget.textContent)
-  let totalSeconds = sessionAmount * 60; // to calculate the total seconds
+    sessionAmount = Number.parseInt(this.minutesTarget.textContent)
+    let totalSeconds = sessionAmount * 60; // to calculate the total seconds
 
   if(this.trigger) {
     totalSeconds = Number.parseInt(minuteDiv.textContent)*60 + Number.parseInt(secondDiv.textContent);
@@ -34,7 +34,7 @@ appTimer() {
     this.state = false; // if session is not running, then proceed timer logic
 
 
-    const updateSeconds = () => { // is responsible for updating the timer display every second
+      const updateSeconds = () => { // is responsible for updating the timer display every second
       console.log("timer runs")
 
       totalSeconds--; // value is reduced by one
@@ -43,25 +43,26 @@ appTimer() {
       let secondsLeft = totalSeconds % 60;  // current seconds
 
 
-      if(secondsLeft < 10) {
-        secondDiv.textContent = '0' + secondsLeft;
-      } else {
-        secondDiv.textContent = secondsLeft;
-      }
-      minuteDiv.textContent = `${minutesLeft}`
+        if(secondsLeft < 10) { // only for adding a 0 such that 09 instead of 9
+          secondDiv.textContent = '0' + secondsLeft;
+        } else {
+          secondDiv.textContent = secondsLeft;
+        }
+        minuteDiv.textContent = `${minutesLeft}`
 
-      if(minutesLeft === 0 && secondsLeft === 0) {
-       // bells.play()
-        console.log('bells are ringing')
-        clearInterval(this.myInterval);
+        if(minutesLeft === 0 && secondsLeft === 0) {
+        // bells.play()
+          console.log('bells are ringing')
+          // clear the interval
+          clearInterval(this.myInterval);
+        }
       }
+
+      this.myInterval = setInterval(updateSeconds, 1000);
+    }   else {
+      alert('Session has already started.')
     }
-
-    this.myInterval = setInterval(updateSeconds, 1000);
-  } else {
-    alert('Session has already started.')
   }
-}
 
   pauseTimer() {
     console.log('timer is paused')
@@ -77,4 +78,79 @@ appTimer() {
   // // Reset the state to allow starting the timer again
   //   this.state = true;
   }
+
+  stopTimer() {
+    console.log('timer is stopped')
+    clearInterval(this.myInterval);
+    this.state = true;
+    // calculate the working time for storing as difference between original time and left time
+    // how to deal with seconds?
+
+    // storeTime = Number.parseInt(this.minutesTarget.textContent) * 60 - minutesLeft // ????
+
+    // Reset it to original time, a small notification would be nice
+    this.minutesTarget.innerText = this.storeTime
+    this.secondsTarget.innerText = ' 00'
+  }
+
+////////////////////////// BREAK TIMER
+
+  appBreak() {
+  // sessionAmount is assigned the value of the 'minutes' target's text content
+    let sessionAmount = " "
+
+
+    const minuteDiv = this.minutesTarget
+    const secondDiv = this.secondsTarget
+
+    sessionAmount = Number.parseInt(this.minutesTarget.textContent)
+    let totalSeconds = sessionAmount * 60; // to calculate the total seconds
+
+    if(this.trigger) {
+      totalSeconds = Number.parseInt(minuteDiv.textContent)*60 + Number.parseInt(secondDiv.textContent);
+    }
+
+
+    if(this.state) {
+      this.state = false; // if session is not running, then proceed timer logic
+
+
+      const updateSeconds = () => { // is responsible for updating the timer display every second
+      console.log("timer runs")
+
+      totalSeconds--; // value is reduced by one
+
+      let minutesLeft = Math.floor(totalSeconds/60); // current minutes
+      let secondsLeft = totalSeconds % 60;  // current seconds
+
+
+        if(secondsLeft < 10) {
+          secondDiv.textContent = '0' + secondsLeft;
+        } else {
+          secondDiv.textContent = secondsLeft;
+        }
+        minuteDiv.textContent = `${minutesLeft}`
+
+        if(minutesLeft === 0 && secondsLeft === 0) {
+        // bells.play()
+          console.log('bells are ringing')
+          clearInterval(this.myInterval);
+          // calculate total working time
+        }
+      }
+
+      this.myInterval = setInterval(updateSeconds, 1000);
+    }   else {
+      alert('Session has already started.')
+    }
+  }
+
+  pauseBreak() {
+    console.log('timer is paused')
+    clearInterval(this.myInterval);
+    // function must be aborted
+    this.state = true;
+    this.trigger = true;
+  }
+
 }
