@@ -16,8 +16,8 @@ body {
 
 button {
   position: relative;
-  // top: 50px; it is conflicting with the menu bar when the phone screen that it will come out of the navbar
-  font-size: 80%;
+  //top: 50px;
+  //font-size: 80%;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: none;
@@ -32,11 +32,39 @@ button:hover {
 
 
 .counter-container {
-  border: 3px solid darkslategrey;
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  // border: 3px solid darkslategrey;
+  //border-radius: 50%;
+  // height: 200px;
+  // width: 200px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.main-card {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-card {
+  margin-top: 10px;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 150px;
 }
