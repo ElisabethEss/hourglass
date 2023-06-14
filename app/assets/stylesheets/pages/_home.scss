@@ -8,13 +8,16 @@ body {
   color: black;
   // background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
   // background-size: cover;
+  margin: auto;
+  height: 100%;
+  max-width: 620px
 }
 
 
 button {
   position: relative;
-  top: 50px;
-  font-size: 80%;
+  //top: 50px;
+  //font-size: 80%;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: none;
@@ -29,11 +32,44 @@ button:hover {
 
 
 .counter-container {
-  border: 3px solid darkslategrey;
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
+  // border: 3px solid darkslategrey;
+  //border-radius: 50%;
+  // height: 200px;
+  // width: 200px;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: beige;
+}
+
+.timer-header {
+  font-weight: bold;
+}
+
+.main-card {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-card {
+  margin-top: 10px;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 150px;
 }

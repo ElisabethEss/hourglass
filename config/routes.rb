@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'achievements/:id', to: 'achievements#show', as: 'achievement'
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :profiles, only: %i[show update destroy]
 end
