@@ -1,0 +1,100 @@
+.btn-home{
+  margin: 10px auto;
+  width: 250px;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  font-family: 'Skranji', cursive;
+  color: #ffcc32;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  text-align: center;
+  padding: 10px 0;
+  background: radial-gradient(circle, #e52b2b, #8b0000);
+  border-top: 4px ridge #ffb000;
+  border-left: 4px groove #ffb000;
+  border-right: 4px ridge #ffb000;
+  border-bottom: 4px groove #ffb000;
+  box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3), 0px 10px 3px -6px rgb(170, 160, 120);;
+}
+
+.btn-text{
+  margin: 10px auto;
+  width: 280px;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  font-family: 'Skranji', cursive;
+  color: #ffcc32;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  text-align: center;
+  padding: 10px 0;
+  background: radial-gradient(circle, #8b0000, #8b0000);
+  border-top: 4px ridge #ffb000;
+  border-left: 4px groove #ffb000;
+  border-right: 4px ridge #ffb000;
+  border-bottom: 4px groove #ffb000;
+  box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3), 0px 10px 3px -6px rgb(170, 160, 120);;
+}
+
+.btn-name{
+  width: 250px;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  font-family: 'Skranji', cursive;
+  color: #ffcc32;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  text-align: center;
+  padding: 10px 0;
+  background: radial-gradient(circle, #e52b2b, #8b0000);
+  border-top: 4px ridge #ffb000;
+  border-left: 4px groove #ffb000;
+  border-right: 4px ridge #ffb000;
+  border-bottom: 4px groove #ffb000;
+  box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3), 0px 10px 3px -6px rgb(170, 160, 120);;
+}
+
+.btn-acheievement{
+  margin: 10px auto;
+  width: 250px;
+  height: 60px;
+  letter-spacing: 2px;
+  font-family: 'Skranji', cursive;
+  color: #ded8e5;
+  font-size: 18px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px #000;
+  text-align: center;
+  padding: 10px 0;
+  background: radial-gradient(circle, #5A407D, #230033);
+  box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
+  border-top: 4px ridge #9CB6C1;
+  border-left: 4px groove #9CB6C1;
+  border-right: 4px ridge #9CB6C1;
+  border-bottom: 4px groove #9CB6C1;
+  border-radius: 8px;
+  cursor: url('https://fontawesome.com/icons/sword?f=sharp&s=solid'), auto;
+}
+
+.btn-acheievement:hover{
+  background: radial-gradient(circle, #ac9fbe, #230033);
+  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
+}
+
+.btn-acheievement:active{
+  background: radial-gradient(circle, #ded8e5, #5A407D);
+  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
+}
+
+.profile-body {
+  // border-radius: 8px;
+  background: radial-gradient(circle, #687975, #28403A);
+  border-top: 8px ridge #36312D;
+  border-left: 8px groove #36312D;
+  border-right: 8px ridge #36312D;
+  border-bottom: 8px groove #36312D;
+  box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3), 0px 10px 3px -6px rgb(170, 160, 120);;
+}

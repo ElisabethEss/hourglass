@@ -1,10 +1,7 @@
-body {
+.navbar-lewagon {
   margin: auto;
   height: 100%;
-  max-width: 620px
-}
-
-.navbar-lewagon {
+  max-width: 620px;
   justify-content: space-between;
   background: #DFBE99;
   border-radius: 10px;
@@ -31,4 +28,8 @@ body {
 .btn-profile {
   border-radius: 10px;
   box-shadow: 0px 10px 3px -6px rgb(170, 160, 120);
+}
+
+.logo-hover:hover{
+  transform: rotate(3.142rad);
 }
