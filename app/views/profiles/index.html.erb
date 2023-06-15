@@ -9,7 +9,9 @@
     <%# acheivements %>
 
     <div class=" btn-acheievement">
-      <i class="fa-sharp fa-solid fa-trophy" style="color: #ded8e5;"></i><%= "ACHIEVEMENTS" %>
+      <%= link_to achievements_path, class: "text-decoration-none" do %>
+        <i class="fa-sharp fa-solid fa-trophy" style="color: #ded8e5;"></i><%= "ACHIEVEMENTS" %>
+      <% end %>
     </div>
     <br>
 
