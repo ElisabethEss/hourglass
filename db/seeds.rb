@@ -15,8 +15,19 @@ user = User.create!(
 )
 puts "User created"
 user.create_profile!(
-  total_study_time: 600,
+  total_study_time: 3300,
   total_break_time: 200,
   experience: 1000
 )
-puts "Profile created. Total study time: 600. Total break time: 200. Experience: 1000."
+
+Achievement.create!(
+  name: "You suck!",
+  studytime: 60,
+  description: "You suck I hate U!!!"
+)
+
+Achievement.create!(
+  name: "You still suck!",
+  studytime: 3400,
+  description: "You suck I hate U!!!"
+)
