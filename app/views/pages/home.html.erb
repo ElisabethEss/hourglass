@@ -1,7 +1,7 @@
 <div class="main-card">
   <h2>Pomodoro</h2>
   <div class="container justify-content-center">
-    <div class="counter-container justify-content-center" data-controller="timer">
+    <div class="counter-container justify-content-center" data-target="timer.profiles" data-controller="timer">
       <div class="time-container">
         <div class="minutes" data-target="timer.minutes">25</div>
         <div class="seconds" data-target="timer.seconds">00</div>
@@ -9,7 +9,7 @@
       <div class=timer-buttons>
         <button class="btn-start" data-action="click->timer#appTimer">Start</button>
         <button class="btn-stop" data-action="click->timer#pauseTimer">Pause</button>
-        <button class="btn-stop" data-action="click->timer#stopTimer">Pause</button>
+        <button class="btn-stop" data-action="click->timer#stopTimer">Stop</button>
       </div>
     </div>
   </div>

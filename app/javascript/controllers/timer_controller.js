@@ -1,24 +1,25 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['minutes', 'seconds']
+  static targets = ['minutes', 'seconds', 'profiles']
 
   connect() {
     console.log("Hello to this timer")
+      // Download ring tone
+      // const bells = new Audio('./sounds/bell.wav');
   }
 
-  // Download ring tone
-  // const bells = new Audio('./sounds/bell.wav');
-  myInterval; // used to store intervall ID for timer
-  state = true; // flag to track whether the timer is currently running or not
-  trigger = false;
-  storeTime = this.minutesTarget.textContent
+      myInterval; // used to store intervall ID for timer
+    state = true; // flag to track whether the timer is currently running or not
+    trigger = false;
+    storeTime = this.minutesTarget.textContent
+
+    minuteDiv = this.minutesTarget.textContent
+    secondDiv = this.secondsTarget
  // define method 'appTimer'
   appTimer() {
   // sessionAmount is assigned the value of the 'minutes' target's text content
     let sessionAmount = " "
-
-
     const minuteDiv = this.minutesTarget
     const secondDiv = this.secondsTarget
 
@@ -53,8 +54,11 @@ export default class extends Controller {
         if(minutesLeft === 0 && secondsLeft === 0) {
         // bells.play()
           console.log('bells are ringing')
+          // update the profiles table with the storeTime
+
           // clear the interval
           clearInterval(this.myInterval);
+
         }
       }
 
@@ -83,15 +87,22 @@ export default class extends Controller {
     console.log('timer is stopped')
     clearInterval(this.myInterval);
     this.state = true;
+    let secondspast = Number.parseInt(this.storeTime)*60 - Number.parseInt(this.minutesTarget.innerText)*60 - Number.parseInt(this.secondsTarget.innerText)
+    fetch(`http://localhost:3000/update_study_time?time=${secondspast}`
+    //, { headers: { 'Accept': 'text/plain' } }
+    ).then(response => response.text()).then(data => console.log(data))
+
     // calculate the working time for storing as difference between original time and left time
     // how to deal with seconds?
 
-    // storeTime = Number.parseInt(this.minutesTarget.textContent) * 60 - minutesLeft // ????
-
+    console.log('timer should be reset now')
     // Reset it to original time, a small notification would be nice
     this.minutesTarget.innerText = this.storeTime
     this.secondsTarget.innerText = ' 00'
-  }
+    }
+
+      // storeTime = Number.parseInt(this.minutesTarget.textContent) * 60 - minutesLeft // ????
+
 
 ////////////////////////// BREAK TIMER
 

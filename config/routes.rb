@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :profiles, only: %i[show update destroy]
+
+  # for AJAX update of study minutes
+  get '/update_study_time', to: 'pages#update_study_time'
 end
