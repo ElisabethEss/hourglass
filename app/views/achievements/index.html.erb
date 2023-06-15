@@ -6,6 +6,13 @@
       background-size: cover;
     }
   </style>
+  <%# code for achiements to show %>
+  <% @achievements.each do |achievement| %>
+    <% if @total_time < achievement.studytime %>
+      <%= achievement.name %>
+    <% end %>
+  <% end %>
+
  <div class="row row-container">
   <div class="col-4">
     <div class="image-container">
@@ -93,4 +100,3 @@
   </div>
 </div>
 </body>
-</html>
