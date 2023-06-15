@@ -50,4 +50,8 @@ class ProfilesController < ApplicationController
       @current_level = 12
     end
   end
+
+  def getStudyTime
+    # Here is something missing definitely
+  end
 end
