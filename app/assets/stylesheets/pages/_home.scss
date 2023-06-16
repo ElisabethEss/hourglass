@@ -87,7 +87,7 @@ button:hover {
 .time-container {
   display: flex;
   flex-direction: row;
-  font-size: 150px;
+  font-size: 4rem;
 }
 
 .time-space {
@@ -116,4 +116,8 @@ button:hover {
   border-right: 4px ridge #ffb000;
   border-bottom: 4px groove #ffb000;
   box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3), 0px 10px 3px -6px rgb(170, 160, 120);
+}
+
+.time-background {
+  background-color: beige;
 }
