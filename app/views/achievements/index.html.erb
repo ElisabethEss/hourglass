@@ -1,19 +1,37 @@
-<body>
   <style>
     body {
       background-image: url("https://images.wallpaperscraft.com/image/single/house_fairy_tale_art_101615_3840x2160.jpg");
-      background-repeat: no-repeat;
+      /* background-repeat: no-repeat; */
+      /* background-size: contain; */
+      /* background-size: auto; */
+      background-attachment: fixed;
       background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
     }
   </style>
+<div class="container">
   <%# code for achiements to show %>
-  <% @achievements.each do |achievement| %>
-    <% if @total_time < achievement.studytime %>
+<div class="achivements-container">
+<% @achievements.each do |achievement| %>
+<% if @total_time >= achievement.studytime %>
+<div class="row row-container">
+  <div class="col-4">
+    <div class="image-container">
+    <%= image_tag "hourglass1.avif", class:"placeholder-image"%>
+      <%# <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image"> %>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="text-container">
       <%= achievement.name %>
-    <% end %>
-  <% end %>
-
- <div class="row row-container">
+      <br><br>
+      <%= achievement.description %>
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="row row-container grayscale">
   <div class="col-4">
     <div class="image-container">
       <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
@@ -21,82 +39,26 @@
   </div>
   <div class="col-8">
     <div class="text-container">
-      <p>Achievement Name</p>
-      <p>Study for 1 hour.</p>
-      <p>Earned on: 6/14/2023.</p>
+      <%= achievement.name %>
+      <br><br>
+      <%= achievement.description %>
     </div>
   </div>
+</div>
+<% end %>
+<% end %>
+</div>
 </div>
 
- <div class="row row-container">
-  <div class="col-3">
-    <div class="image-container">
-      <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="text-container">
-      <p>Study for 1 hour.</p>
-      <p>Achievement earned on: 6/14/2023.</p>
-    </div>
-  </div>
-</div>
-
- <div class="row row-container">
-  <div class="col-3">
-    <div class="image-container">
-      <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="text-container">
-      <p>Study for 1 hour.</p>
-      <p>Achievement earned on: 6/14/2023.</p>
-    </div>
-  </div>
-</div>
-
- <div class="row row-container">
-  <div class="col-3">
-    <div class="image-container">
-      <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="text-container">
-      <p>Study for 1 hour.</p>
-      <p>Achievement earned on: 6/14/2023.</p>
-    </div>
-  </div>
-</div>
-
- <div class="row row-container grayscale">
-  <div class="col-3">
-    <div class="image-container">
-      <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="text-container">
-      <p>Waste of time</p>
-      <p>Study for 100 hours.</p>
-      <p>Achievement unearned</p>
-    </div>
-  </div>
-</div>
-
- <div class="row row-container grayscale">
-  <div class="col-3">
-    <div class="image-container">
-      <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
-    </div>
-  </div>
-  <div class="col-9">
-    <div class="text-container">
-      <p>Total waste of time</p>
-      <p>Study for 1000 hours.</p>
-      <p>Achievement unearned</p>
-    </div>
-  </div>
-</div>
-</body>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
