@@ -13,12 +13,16 @@ user = User.create!(
   password: "user@user.com",
   name: "testuser"
 )
+
 puts "User created"
-user.create_profile!(
+
+user.profile.update!(
   total_study_time: 3300,
   total_break_time: 200,
   experience: 1000
 )
+
+puts "User's profile created"
 
 Achievement.create!(
   name: "You suck!",
@@ -31,3 +35,5 @@ Achievement.create!(
   studytime: 3400,
   description: "You suck I hate U!!!"
 )
+
+puts "Achievements created"
