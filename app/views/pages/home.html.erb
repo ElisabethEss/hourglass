@@ -1,37 +1,42 @@
-<div class="main-card">
-  <h2>Pomodoro</h2>
-  <div class="container justify-content-center">
-    <div class="counter-container justify-content-center" data-controller="timer">
-      <div class="time-container">
-        <div class="minutes" data-target="timer.minutes">25</div>
-        <div class="seconds" data-target="timer.seconds">00</div>
-      </div>
-      <div class=timer-buttons>
-        <button class="btn-start" data-action="click->timer#appTimer">Start</button>
-        <button class="btn-stop" data-action="click->timer#pauseTimer">Pause</button>
-      </div>
-    </div>
+<div data-controller="timer">
+  <div class="main-card time-space">
+
+    <h2 class="header-text">Your Dragon Glass Timer</h2>
+    <p>
+In the mystical land of Pomodorania, where dragons roamed and productivity thrived, the Dragon's Hourglass was forged from the fiery breath of a time-obsessed dragon, ensuring that tasks were conquered with a sizzling determination. </p>
+
+      <div class="container justify-content-center">
+
+          <div class="counter-container justify-content-center">
+            <div class="time-container">
+              <div class="minutes" data-timer-target="minutes">25</div>
+              <div class="seconds" data-timer-target="seconds">00</div>
+            </div>
+            <div class=timer-buttons>
+              <button class="btn-fant" data-action="click->timer#appTimer">Start</button>
+              <button class="btn-fant" data-action="click->timer#pauseTimer">Pause</button>
+              <button class="btn-fant" data-action="click->timer#stopTimer">Stop</button>
+            </div>
+        </div>
+
+
+
+          <div class="d-flex justify-content-center">
+            <div class="counter-container d-flex justify-content-center flex-column">
+              <h5 class="timer-header">Your Break Time</h5>
+              <div class="d-flex justify-content-center">
+                <div class="minutes" data-timer-target="minutesB">5</div>
+                <div><p>:</p></div>
+                <div class="seconds" data-timer-target="secondsB">00</div>
+              </div>
+
+              <div class="d-flex justify-content-around">
+                <button class="btn-fant" data-action="click->timer#appBreak">Start</button>
+                <button class="btn-fant" data-action="click->timer#pauseBreak">Pause</button>
+                <button class="btn-fant" data-action="click->timer#pauseBreak">Stop</button>
+              </div>
+            </div>
+          </div>
+      <div>
   </div>
-</div>
-
-
-<div class="d-flex justify-content-center">
-  <div class="counter-container d-flex justify-content-center flex-column" data-controller="timer">
-     <h5 class="timer-header">Your Break Time</h5>
-    <div class="d-flex justify-content-center">
-      <div class="minutes" data-target="timer.minutes">5</div>
-      <div><p>:</p></div>
-      <div class="seconds" data-target="timer.seconds">00</div>
-    </div>
-
-    <div class="d-flex justify-content-around">
-      <button class="btn-start" data-action="click->timer#appBreak">Start</button>
-      <button class="btn-stop" data-action="click->timer#pauseBreak">Pause</button>
-      <button class="btn-stop" data-action="click->timer#pauseBreak">Stop</button>
-    </div>
-  </div>
-</div>
-
-<div class="task-card">
-<h1>Tasks</h1>
 </div>
