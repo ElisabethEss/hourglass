@@ -2,7 +2,7 @@
 <div class="container profile-body">
   <div class="">
     <%# avatar %>
-    <div class="btn-home"><%= "AVATAR" %></div>
+    <div class="btn-home"><%= link_to 'AVATAR', avatar_path(@profile.avatars.first) %></div>
     <br>
     <%# profile information %>
 
@@ -19,7 +19,7 @@
       <div>
         <div class="btn-home"><%= "STATISTICS" %></div>
       </div>
-      <div class="text-cente d-flex flex-wrap">
+      <div class="text-center d-flex flex-wrap">
         <div class="btn-text btn-profile"><%= "This week you have 9 podomoros" %><br><%= "59min" %></div>
         <div class="btn-text btn-profile"><%= "This month you have 19 podomoros" %><br><%= "11hr 59min" %></div>
         <div class="btn-text btn-profile"><%= "Total study time" %><br><%= "99hr 59min" %></div>
