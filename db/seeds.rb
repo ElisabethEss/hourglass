@@ -8,6 +8,8 @@
 
 Profile.destroy_all
 User.destroy_all
+Achievement.destroy_all
+
 user = User.create!(
   email: "user@user.com",
   password: "user@user.com",
@@ -25,15 +27,54 @@ user.profile.update!(
 puts "User's profile created"
 
 Achievement.create!(
-  name: "You suck!",
-  studytime: 60,
-  description: "You suck I hate U!!!"
+  name: "My first time",
+  studytime: 0,
+  description: "Log in the app for the first time."
 )
-
 Achievement.create!(
-  name: "You still suck!",
-  studytime: 3400,
-  description: "You suck I hate U!!!"
+  name: "The devil is in the details",
+  studytime: 666,
+  description: "Study for 666 seconds."
+)
+Achievement.create!(
+  name: "Time after time",
+  studytime: 3000,
+  description: "Study for 2 full classic sessions (25 minutes)."
+)
+Achievement.create!(
+  name: "Time Dominator",
+  studytime: 6000,
+  description: "Study for 4 full classic sessions (25 minutes)."
+)
+Achievement.create!(
+  name: "Push it to the limit",
+  studytime: 360_000,
+  description: "Study for 100 hours."
+)
+Achievement.create!(
+  name: "Time bender",
+  studytime: 599_940,
+  description: "Study for 9999 minutes."
+)
+Achievement.create!(
+  name: "Break the record",
+  studytime: 300,
+  description: "Take a break for a total of 5 minutes."
+)
+Achievement.create!(
+  name: "Take a five",
+  studytime: 1500,
+  description: "Take a classic break (5 minutes) 5 times."
+)
+Achievement.create!(
+  name: "Breaks are important",
+  studytime: 1500,
+  description: "Take a break for a total of 100 minutes."
+)
+Achievement.create!(
+  name: "Breaks are SOOOOO important",
+  studytime: 15_000,
+  description: "Take a break for a total of 1000 minutes."
 )
 
-puts "Achievements created"
+puts "Achievements created!"
