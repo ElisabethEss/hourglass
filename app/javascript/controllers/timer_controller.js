@@ -1,21 +1,33 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['minutes', 'seconds', 'profiles']
+  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles']
 
   connect() {
     console.log("Hello to this timer")
+    console.log(this.minutesBTarget)
       // Download ring tone
       // const bells = new Audio('./sounds/bell.wav');
   }
 
-      myInterval; // used to store intervall ID for timer
+    myInterval; // used to store intervall ID for timer
     state = true; // flag to track whether the timer is currently running or not
     trigger = false;
     storeTime = this.minutesTarget.textContent
 
     minuteDiv = this.minutesTarget.textContent
     secondDiv = this.secondsTarget
+
+  // same for timer
+  myIntervalB; // used to store intervall ID for timer
+  stateB = true; // flag to track whether the timer is currently running or not
+  triggerB = false;
+  storeTimeB = this.minutesBTarget.textContent
+
+  minuteDivB = this.minutesBTarget.textContent
+  secondDivB = this.secondsBTarget
+
+
  // define method 'appTimer'
   appTimer() {
   // sessionAmount is assigned the value of the 'minutes' target's text content
@@ -108,60 +120,59 @@ export default class extends Controller {
 
   appBreak() {
   // sessionAmount is assigned the value of the 'minutes' target's text content
-    let sessionAmount = " "
+    let sessionAmountB = " "
 
 
-    const minuteDiv = this.minutesTarget
-    const secondDiv = this.secondsTarget
+    const minuteDivB = this.minutesBTarget
+    const secondDivB = this.secondsBTarget
 
-    sessionAmount = Number.parseInt(this.minutesTarget.textContent)
-    let totalSeconds = sessionAmount * 60; // to calculate the total seconds
+    sessionAmountB = Number.parseInt(this.minutesBTarget.textContent)
+    let totalSecondsB = sessionAmountB * 60; // to calculate the total seconds
 
     if(this.trigger) {
-      totalSeconds = Number.parseInt(minuteDiv.textContent)*60 + Number.parseInt(secondDiv.textContent);
+      totalSecondsB = Number.parseInt(minuteDivB.textContent)*60 + Number.parseInt(secondDivB.textContent);
     }
 
 
-    if(this.state) {
-      this.state = false; // if session is not running, then proceed timer logic
+    if(this.stateB) {
+      this.stateB = false; // if session is not running, then proceed timer logic
 
 
-      const updateSeconds = () => { // is responsible for updating the timer display every second
+      const updateSecondsB = () => { // is responsible for updating the timer display every second
       console.log("timer runs")
 
-      totalSeconds--; // value is reduced by one
+      totalSecondsB--; // value is reduced by one
 
-      let minutesLeft = Math.floor(totalSeconds/60); // current minutes
-      let secondsLeft = totalSeconds % 60;  // current seconds
+      let minutesLeftB = Math.floor(totalSecondsB/60); // current minutes
+      let secondsLeftB = totalSecondsB % 60;  // current seconds
 
-
-        if(secondsLeft < 10) {
-          secondDiv.textContent = '0' + secondsLeft;
+        if(secondsLeftB < 10) {
+          secondDivB.textContent = '0' + secondsLeftB;
         } else {
-          secondDiv.textContent = secondsLeft;
+          secondDivB.textContent = secondsLeftB;
         }
-        minuteDiv.textContent = `${minutesLeft}`
+        minuteDivB.textContent = `${minutesLeftB}`
 
-        if(minutesLeft === 0 && secondsLeft === 0) {
+        if(minutesLeftB === 0 && secondsLeftB === 0) {
         // bells.play()
           console.log('bells are ringing')
-          clearInterval(this.myInterval);
+          clearInterval(this.myIntervalB);
           // calculate total working time
         }
       }
 
-      this.myInterval = setInterval(updateSeconds, 1000);
+      this.myIntervalB = setInterval(updateSecondsB, 1000);
     }   else {
-      alert('Session has already started.')
+      alert('Break has already started.')
     }
   }
 
   pauseBreak() {
-    console.log('timer is paused')
-    clearInterval(this.myInterval);
+    console.log('break is paused')
+    clearInterval(this.myIntervalB);
     // function must be aborted
-    this.state = true;
-    this.trigger = true;
+    this.stateB = true;
+    this.triggerB = true;
   }
 
 }
