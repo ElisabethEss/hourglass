@@ -1,6 +1,11 @@
 class ProfilesController < ApplicationController
   def index
     @total_experience = current_user.profile.total_study_time
+    @total_study_hours = current_user.profile.total_study_time / 60 / 60
+    @total_study_minutes = current_user.profile.total_study_time / 60 % 60
+    @total_break_hours = current_user.profile.total_break_time / 60 / 60
+    @total_break_minutes = current_user.profile.total_break_time / 60 % 60
+
     # @level = {
     #   "1" => 0,
     #   "2" => 1500,
@@ -49,5 +54,12 @@ class ProfilesController < ApplicationController
     when 638_87...793_62
       @current_level = 12
     end
+  end
+
+  def destroy
+    @profile = Profile.find(params[:id])
+    @profile.destroy
+    current_user.destroy
+    redirect_to new_user_session_path, notice: "Account has been deleted"
   end
 end
