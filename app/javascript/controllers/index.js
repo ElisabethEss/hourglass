@@ -4,9 +4,6 @@
 
 import { application } from "./application"
 
-import FirefliesController from "./fireflies_controller"
-application.register("fireflies", FirefliesController)
-
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
