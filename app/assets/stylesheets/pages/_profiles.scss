@@ -101,14 +101,21 @@
   border-radius: 8px;
 }
 
-.text-btn-acheievement {
-  color: #ded8e5;
-}
-
 .btn-acheievement:hover{
-  background: radial-gradient(circle, rgba(172, 159, 190), rgba(35, 0, 51));
+  background: radial-gradient(circle, rgb(172, 159, 190), rgb(35, 0, 51));
+   box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
+  cursor: pointer;
+ }
+
+.btn-acheievement:hover::after{
+  border-style: none;
+  background: radial-gradient(circle, rgb(172, 159, 190), rgb(35, 0, 51));
   box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
   cursor: pointer;
+}
+
+.text-btn-acheievement {
+  color: #ded8e5;
 }
 
 .btn-acheievement:active{
