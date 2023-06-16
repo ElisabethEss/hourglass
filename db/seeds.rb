@@ -77,4 +77,4 @@ Achievement.create!(
   description: "Take a break for a total of 1000 minutes."
 )
 
-puts "Achievements created"
+puts "Achievements created!"
