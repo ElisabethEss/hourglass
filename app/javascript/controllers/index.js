@@ -4,8 +4,11 @@
 
 import { application } from "./application"
 
-import TimerController from "./timer_controller"
-application.register("timer", TimerController)
+import FirefliesController from "./fireflies_controller"
+application.register("fireflies", FirefliesController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import TimerController from "./timer_controller"
+application.register("timer", TimerController)

@@ -1,0 +1,64 @@
+  <style>
+    body {
+      background-image: url("https://images.wallpaperscraft.com/image/single/house_fairy_tale_art_101615_3840x2160.jpg");
+      /* background-repeat: no-repeat; */
+      /* background-size: contain; */
+      /* background-size: auto; */
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+  </style>
+<div class="container">
+  <%# code for achiements to show %>
+<div class="achivements-container">
+<% @achievements.each do |achievement| %>
+<% if @total_time >= achievement.studytime %>
+<div class="row row-container">
+  <div class="col-4">
+    <div class="image-container">
+    <%= image_tag "hourglass1.avif", class:"placeholder-image"%>
+      <%# <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image"> %>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="text-container">
+      <%= achievement.name %>
+      <br><br>
+      <%= achievement.description %>
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="row row-container grayscale">
+  <div class="col-4">
+    <div class="image-container">
+      <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="text-container">
+      <%= achievement.name %>
+      <br><br>
+      <%= achievement.description %>
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>
+</div>
+</div>
+
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
+  <div class="firefly"></div>
