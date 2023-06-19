@@ -16,7 +16,7 @@ class User < ApplicationRecord
 
 
   def getlevel
-    self.profile.level
+    self.profile.level.level
   end
 
   # def level
