@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     @total_break_hours = current_user.profile.total_break_time / 60 / 60
     @total_break_minutes = current_user.profile.total_break_time / 60 % 60
 
+    if user_signed_in?
+      @level = current_user.level
+    end
+
     @current_level = 1
 
     case @total_experience
@@ -41,6 +45,7 @@ class PagesController < ApplicationController
     # we dont need this because we are loged in as current_user
     # BUT: I don't just to update, I want to add!
     current_user.profile.update(total_study_time: current_user.profile.total_study_time + params[:time].to_i)
+    current_user.profile.update(experience: current_user.profile.experience + params[:time].to_i)
   end
 
   def update_break_time

@@ -9,6 +9,14 @@
 Profile.destroy_all
 User.destroy_all
 Achievement.destroy_all
+Level.destroy_all
+
+# create 10 levels
+(1..10).each do |lv|
+  min_experience = (1000 * (lv - 1) * 1.2) + 1
+  max_exp = 1000 * lv * 1.2
+  Level.create!(level: lv, experience: min_experience, max_experience: max_exp)
+end
 
 user = User.create!(
   email: "user@user.com",
@@ -21,7 +29,7 @@ puts "User created"
 user.profile.update!(
   total_study_time: 3300,
   total_break_time: 200,
-  experience: 1000
+  experience: 3300
 )
 
 puts "User's profile created"

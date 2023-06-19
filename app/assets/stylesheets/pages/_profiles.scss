@@ -101,9 +101,10 @@
   border-radius: 8px;
 }
 
-.btn-acheievement:hover{
+.btn-acheievement:hover ~ body{
   background: radial-gradient(circle, rgb(172, 159, 190), rgb(35, 0, 51));
-   box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
+  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
+  opacity: 0;
   cursor: pointer;
  }
 
@@ -147,19 +148,13 @@
   text-shadow: 0 1px 3px #000;
   text-align: center;
   padding: 10px 0;
-  background: radial-gradient(circle, grey, black);
+  background: black;
   // background: linear-gradient(#f8e7e8, #5A407D, #230033)
   box-shadow: inset 0px 0px 5px 3px rgba(1,1,1,0.3);
-  border-top: 4px ridge #9CB6C1;
-  border-left: 4px groove #9CB6C1;
-  border-right: 4px ridge #9CB6C1;
-  border-bottom: 4px groove #9CB6C1;
   border-radius: 8px;
 }
 
 .btn-profile-delete:hover{
-  background: radial-gradient(circle, #7f7f7f, #323232);
-  box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2);
   cursor: pointer;
 }
 

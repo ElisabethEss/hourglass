@@ -1,13 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles']
+  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'form', 'time']
 
   connect() {
     console.log("Hello to this timer")
     console.log(this.minutesBTarget)
       // Download ring tone
       // const bells = new Audio('./sounds/bell.wav');
+  }
+
+  // First ask user for minutes and hide timer, then switch
+  submitForm(event) {
+    event.preventDefault();
+    // Hide the form
+    this.formTarget.classList.add("d-none");
+    // Show the time background
+    this.timeTarget.classList.remove("d-none");
+    console.log(this.timeTarget)
   }
 
     myInterval; // used to store intervall ID for timer
@@ -27,6 +37,11 @@ export default class extends Controller {
     minuteDivB = this.minutesBTarget.textContent
     secondDivB = this.secondsBTarget
 
+  setMinutes(event) {
+    event.preventDefault()
+    this.minutesTarget.innerHTML = this.workminutesTarget.value
+    this.minutesBTarget.innerHTML = this.breakminutesTarget.value
+  }
 
  // define method 'appTimer'
   appTimer() {
@@ -125,9 +140,10 @@ export default class extends Controller {
     const secondDivB = this.secondsBTarget
 
     sessionAmountB = Number.parseInt(this.minutesBTarget.textContent)
+
     let totalSecondsB = sessionAmountB * 60; // to calculate the total seconds
 
-    if(this.trigger) {
+    if(this.triggerB) {
       totalSecondsB = Number.parseInt(minuteDivB.textContent)*60 + Number.parseInt(secondDivB.textContent);
     }
 
@@ -137,12 +153,15 @@ export default class extends Controller {
 
 
       const updateSecondsB = () => { // is responsible for updating the timer display every second
-      console.log("break runs")
+        console.log("break runs")
 
-      totalSecondsB--; // value is reduced by one
 
-      let minutesLeftB = Math.floor(totalSecondsB/60); // current minutes
-      let secondsLeftB = totalSecondsB % 60;  // current seconds
+        totalSecondsB--; // value is reduced by one
+
+
+        let minutesLeftB = Math.floor(totalSecondsB/60); // current minutes
+        let secondsLeftB = totalSecondsB % 60;  // current seconds
+        console.log(minutesLeftB, secondsLeftB)
 
         if(secondsLeftB < 10) {
           secondDivB.textContent = '0' + secondsLeftB;
