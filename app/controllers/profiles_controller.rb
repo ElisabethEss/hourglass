@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
     @total_study_minutes = current_user.profile.total_study_time / 60 % 60
     @total_break_hours = current_user.profile.total_break_time / 60 / 60
     @total_break_minutes = current_user.profile.total_break_time / 60 % 60
-    @level = current_user.level
+    @level = current_user.profile.level
     @profile = current_user.profile
 
     # @level = {

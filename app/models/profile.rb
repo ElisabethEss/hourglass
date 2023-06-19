@@ -10,7 +10,7 @@ class Profile < ApplicationRecord
   before_validation :update_level
 
   def update_level
-    @level = Level.find_by("experience < :exp and max_experience > :exp", exp: experience)
-    self.level = @level
+    # @level = Level.find_by("experience < :exp and max_experience > :exp", exp: experience)
+    self.level = Level.find_by("experience < :exp and max_experience > :exp", exp: experience)
   end
 end

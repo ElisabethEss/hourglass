@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if user_signed_in? %>
-        <div class="justify-content-center m-2 mt-3 level"><%= "Lv.#{current_user.level}" %></div>
+        <div class="justify-content-center m-2 mt-3 level"><%= "Lv.#{current_user.profile.level.level}" %></div>
         <ul class="navbar-nav me-auto">
           <li class="nav-item active">
             <%= link_to "Profile", profiles_path, class: "btn btn-profile btn-success m-2" %>

@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @total_break_minutes = current_user.profile.total_break_time / 60 % 60
 
     if user_signed_in?
-      @level = current_user.level
+      @level = current_user.profile.level
     end
 
     @current_level = 1
@@ -54,5 +54,4 @@ class PagesController < ApplicationController
     # BUT: I don't just to update, I want to add!
     current_user.profile.update(total_break_time: current_user.profile.total_break_time + params[:time].to_i)
   end
-
 end
