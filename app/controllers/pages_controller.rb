@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def home
     # @image = current_user.profile.avatars.first
     if user_signed_in?
-      @level = current_user.profile.level
+      @level = current_user.level
     end
   end
 
@@ -12,6 +12,7 @@ class PagesController < ApplicationController
     # we dont need this because we are loged in as current_user
     # BUT: I don't just to update, I want to add!
     current_user.profile.update(total_study_time: current_user.profile.total_study_time + params[:time].to_i)
+    current_user.profile.update(experience: current_user.profile.experience + params[:time].to_i)
   end
 
   def update_break_time

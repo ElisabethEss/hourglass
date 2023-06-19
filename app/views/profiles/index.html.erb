@@ -9,7 +9,7 @@
     <br>
 
     <%# profile information %>
-    
+
     <%# acheivements %>
     <div class="btn-acheievement">
       <%= link_to achievements_path, class: "text-decoration-none text-btn-acheievement" do %>
@@ -24,13 +24,14 @@
       <div class="text-center d-flex flex-wrap">
         <div class="btn-text btn-profile"><%= "Total study time" %><br><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></div>
         <div class="btn-text btn-profile"><%= "Total break time" %><br><%= "#{@total_break_hours}hr #{@total_break_minutes}min" %></div>
+        <div class="btn-text btn-profile"><%= "#{@profile.experience}exp"%></div>
         <%# Completed podomoros, completed tasks, average podomoro per week/month, most productive day(calender), amount of podomoros this week/month %>
       </div>
     </div>
 
     <%# delete profile %>
     <br>
-    <div class="btn-profile-delete mt-4">
+    <div>
       <%= link_to profile_path(current_user.profile), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-decoration-none text-btn-acheievement" do %>
         <i class="fa-solid fa-skull fa-sm" style="color: #d6d6d6;"></i><%= "Delete Profile" %>
       <% end %>
