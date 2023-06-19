@@ -14,8 +14,8 @@ class User < ApplicationRecord
     Profile.create!(user: self)
   end
 
-  def level
-    profile.level.level
+  def getlevel
+    self.profile.level
   end
 
   # def level
