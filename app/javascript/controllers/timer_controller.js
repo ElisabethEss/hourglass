@@ -18,14 +18,14 @@ export default class extends Controller {
     minuteDiv = this.minutesTarget.textContent
     secondDiv = this.secondsTarget
 
-  // same for timer
-  myIntervalB; // used to store intervall ID for timer
-  stateB = true; // flag to track whether the timer is currently running or not
-  triggerB = false;
-  storeTimeB = this.minutesBTarget.textContent
+  // same for breaker
+    myIntervalB; // used to store intervall ID for breaker
+    stateB = true; // flag to track whether the breaker is currently running or not
+    triggerB = false;
+    storeTimeB = this.minutesBTarget.textContent
 
-  minuteDivB = this.minutesBTarget.textContent
-  secondDivB = this.secondsBTarget
+    minuteDivB = this.minutesBTarget.textContent
+    secondDivB = this.secondsBTarget
 
 
  // define method 'appTimer'
@@ -38,9 +38,9 @@ export default class extends Controller {
     sessionAmount = Number.parseInt(this.minutesTarget.textContent)
     let totalSeconds = sessionAmount * 60; // to calculate the total seconds
 
-  if(this.trigger) {
-    totalSeconds = Number.parseInt(minuteDiv.textContent)*60 + Number.parseInt(secondDiv.textContent);
-  }
+    if(this.trigger) {
+      totalSeconds = Number.parseInt(minuteDiv.textContent)*60 + Number.parseInt(secondDiv.textContent);
+    }
 
 
   if(this.state) {
@@ -75,8 +75,6 @@ export default class extends Controller {
       }
 
       this.myInterval = setInterval(updateSeconds, 1000);
-    }   else {
-      alert('Session has already started.')
     }
   }
 
@@ -113,7 +111,7 @@ export default class extends Controller {
     this.secondsTarget.innerText = ' 00'
     }
 
-      // storeTime = Number.parseInt(this.minutesTarget.textContent) * 60 - minutesLeft // ????
+
 
 
 ////////////////////////// BREAK TIMER
@@ -139,7 +137,7 @@ export default class extends Controller {
 
 
       const updateSecondsB = () => { // is responsible for updating the timer display every second
-      console.log("timer runs")
+      console.log("break runs")
 
       totalSecondsB--; // value is reduced by one
 
@@ -162,8 +160,6 @@ export default class extends Controller {
       }
 
       this.myIntervalB = setInterval(updateSecondsB, 1000);
-    }   else {
-      alert('Break has already started.')
     }
   }
 
@@ -175,4 +171,18 @@ export default class extends Controller {
     this.triggerB = true;
   }
 
+  stopBreak() {
+    console.log('break is stopped')
+    clearInterval(this.myIntervalB);
+    this.stateB = true;
+    let secondspastB = Number.parseInt(this.storeTimeB)*60 - Number.parseInt(this.minutesBTarget.innerText)*60 - Number.parseInt(this.secondsBTarget.innerText)
+    fetch(`http://localhost:3000/update_break_time?time=${secondspastB}`
+    //, { headers: { 'Accept': 'text/plain' } }
+    ).then(response => response.text()).then(data => console.log(data))
+
+    console.log('break should be reset now')
+    // Reset it to original time, a small notification would be nice
+    this.minutesBTarget.innerText = this.storeTimeB
+    this.secondsBTarget.innerText = ' 00'
+  }
 }

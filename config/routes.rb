@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :achievements, only: [:index]
   resources :avatars, only: [:index]
   get '/update_study_time', to: 'pages#update_study_time'
+  get '/update_break_time', to: 'pages#update_break_time'
 end
