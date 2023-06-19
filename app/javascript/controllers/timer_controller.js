@@ -140,8 +140,9 @@ export default class extends Controller {
     const secondDivB = this.secondsBTarget
 
     sessionAmountB = Number.parseInt(this.minutesBTarget.textContent)
+
     let totalSecondsB = sessionAmountB * 60; // to calculate the total seconds
-    console.log(minuteDivB, secondDivB)
+
     if(this.triggerB) {
       totalSecondsB = Number.parseInt(minuteDivB.textContent)*60 + Number.parseInt(secondDivB.textContent);
     }
@@ -152,14 +153,15 @@ export default class extends Controller {
 
 
       const updateSecondsB = () => { // is responsible for updating the timer display every second
-      console.log("break runs")
+        console.log("break runs")
 
 
-      totalSecondsB--; // value is reduced by one
-      console.log(totalSecondsB)
+        totalSecondsB--; // value is reduced by one
 
-      let minutesLeftB = Math.floor(totalSecondsB/60); // current minutes
-      let secondsLeftB = totalSecondsB % 60;  // current seconds
+
+        let minutesLeftB = Math.floor(totalSecondsB/60); // current minutes
+        let secondsLeftB = totalSecondsB % 60;  // current seconds
+        console.log(minutesLeftB, secondsLeftB)
 
         if(secondsLeftB < 10) {
           secondDivB.textContent = '0' + secondsLeftB;

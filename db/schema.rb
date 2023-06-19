@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_16_105410) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_131432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_105410) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "levels", force: :cascade do |t|
+    t.integer "level"
+    t.integer "experience"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "max_experience"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.integer "total_study_time", default: 0
     t.integer "total_break_time", default: 0
@@ -36,6 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_105410) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "level_id"
+    t.index ["level_id"], name: "index_profiles_on_level_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -82,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_16_105410) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "profiles", "levels"
   add_foreign_key "profiles", "users"
   add_foreign_key "sessions", "profiles"
   add_foreign_key "user_achievements", "achievements"
