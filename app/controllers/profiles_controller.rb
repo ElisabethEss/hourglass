@@ -62,7 +62,7 @@ class ProfilesController < ApplicationController
     current_user.destroy
     redirect_to new_user_session_path, notice: "Account has been deleted"
   end
-  
+
   def getStudyTime
     # Here is something missing definitely
   end
