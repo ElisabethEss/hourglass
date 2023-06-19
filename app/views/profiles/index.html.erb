@@ -29,7 +29,35 @@
       </div>
     </div>
 
-    <%# delete profile %>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-6">
+          <div class="card text-center" style="width: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></h5>
+              <p> Your Total Study Time</p>
+              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card text-center" style="width: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= "#{@current_level}" %></h5>
+              <p> Your Total Break Time</p>
+              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+      <%# delete profile %>
     <br>
     <div>
       <%= link_to profile_path(current_user.profile), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-decoration-none text-btn-acheievement" do %>
