@@ -11,8 +11,16 @@ body {
   margin: auto;
   height: 100%;
   max-width: 620px;
-  // background-image: url(https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826);
-  background-image: url(https://voyagecomics.com/wp-content/uploads/2021/10/smaug_dragon.webp);
+
+  // background image - house
+  background-image: url("https://images.wallpaperscraft.com/image/single/house_fairy_tale_art_101615_3840x2160.jpg");
+      /* background-repeat: no-repeat; */
+      /* background-size: contain; */
+      /* background-size: auto; */
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
 }
 
 

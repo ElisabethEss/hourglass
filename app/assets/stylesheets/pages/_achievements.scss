@@ -29,6 +29,44 @@
   filter: grayscale(100%);
 }
 
+.blurred-box {
+background: rgba(201, 131, 196, 0.475);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.0px);
+-webkit-backdrop-filter: blur(3.2px);
+border: 1px solid rgba(94, 12, 87, 0.07);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .overflow {
   overflow: auto;
 }
