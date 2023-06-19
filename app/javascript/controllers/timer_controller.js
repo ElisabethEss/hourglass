@@ -126,7 +126,7 @@ export default class extends Controller {
 
     sessionAmountB = Number.parseInt(this.minutesBTarget.textContent)
     let totalSecondsB = sessionAmountB * 60; // to calculate the total seconds
-
+    console.log(minuteDivB, secondDivB)
     if(this.trigger) {
       totalSecondsB = Number.parseInt(minuteDivB.textContent)*60 + Number.parseInt(secondDivB.textContent);
     }
