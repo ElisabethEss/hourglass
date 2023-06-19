@@ -1,21 +1,9 @@
-  <style>
-    body {
-      background-image: url("https://images.wallpaperscraft.com/image/single/house_fairy_tale_art_101615_3840x2160.jpg");
-      /* background-repeat: no-repeat; */
-      /* background-size: contain; */
-      /* background-size: auto; */
-      background-attachment: fixed;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-  </style>
-<div class="container">
+<div class="container ">
   <%# code for achiements to show %>
 <div class="achivements-container">
 <% @achievements.each do |achievement| %>
 <% if @total_time >= achievement.studytime %>
-<div class="row row-container">
+<div class="row row-container blurred-box" data-toggle="modal">
   <div class="col-4">
     <div class="image-container">
     <%= image_tag "hourglass1.avif", class:"placeholder-image"%>
@@ -31,7 +19,7 @@
   </div>
 </div>
 <% else %>
-<div class="row row-container grayscale">
+<div class="row row-container grayscale blurred-box">
   <div class="col-4">
     <div class="image-container">
       <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">

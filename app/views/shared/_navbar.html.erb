@@ -1,36 +1,26 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <div class="btn-logo">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <i class="fa-sharp fa-solid fa-hourglass-start fa-2xl logo-hover"></i>
-      <% end %>
+<nav class="navbar navbar-expand-sm navbar-size blurred-box navbar-wide row-container">
+  <div class="container-fluid flex-column justify-content-between">
+  <div class="d-flex justify-content-between">
+    <div style="width: 10%; height: auto;">
+      <%= image_tag "hourglass1.avif", style: "max-width: 100%; height:auto;" %>
     </div>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <% if user_signed_in? %>
-        <div class="justify-content-center m-2 mt-3 level"><%= "Lv.#{current_user.profile.level.level}" %></div>
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item active">
-            <%= link_to "Profile", profiles_path, class: "btn btn-profile btn-success m-2" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item", data: { turbo_method: :delete } %>
-            </div>
-          </li>
-        </ul>
+      <% unless current_user.nil? %>
+        <%= "Lv.1" %>
+      <% end %>
+    <div>
+      <% unless current_user.nil? %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger", data: { turbo_method: :delete } %>
       <% else %>
-        <!--li class="nav-item"-->
-        <div class="justify-content-center m-2 mt-3 level"><%= "Lv.1" %></div>
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        <!--/li-->
-          </ul>
+      <%= link_to "Login", new_user_session_path%>
       <% end %>
     </div>
   </div>
-</div>
+  <div class="d-flex justify-content-between mt-3">
+        <% unless current_user.nil? %>
+          <%= link_to "Avatar", "#", class: "btn btn-navbar-new btn-navbar-new-transition m-2" %>
+          <%= link_to "Achievements", achievements_path, class: "btn btn-navbar-new btn-navbar-new-transition m-2" %>
+          <%= link_to "Profile", profiles_path, class: "btn btn-navbar-new btn-navbar-new-transition m-2" %>
+        <% end %>
+    </div>
+  </div>
+</nav>
