@@ -1,13 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles']
+  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'form', 'time']
 
   connect() {
     console.log("Hello to this timer")
     console.log(this.minutesBTarget)
       // Download ring tone
       // const bells = new Audio('./sounds/bell.wav');
+  }
+
+  // First ask user for minutes and hide timer, then switch
+  submitForm(event) {
+    event.preventDefault();
+    // Hide the form
+    this.formTarget.classList.add("d-none");
+    // Show the time background
+    this.timeTarget.classList.remove("d-none");
+    console.log(this.timeTarget)
   }
 
     myInterval; // used to store intervall ID for timer
@@ -18,15 +28,20 @@ export default class extends Controller {
     minuteDiv = this.minutesTarget.textContent
     secondDiv = this.secondsTarget
 
-  // same for timer
-  myIntervalB; // used to store intervall ID for timer
-  stateB = true; // flag to track whether the timer is currently running or not
-  triggerB = false;
-  storeTimeB = this.minutesBTarget.textContent
+  // same for breaker
+    myIntervalB; // used to store intervall ID for breaker
+    stateB = true; // flag to track whether the breaker is currently running or not
+    triggerB = false;
+    storeTimeB = this.minutesBTarget.textContent
 
-  minuteDivB = this.minutesBTarget.textContent
-  secondDivB = this.secondsBTarget
+    minuteDivB = this.minutesBTarget.textContent
+    secondDivB = this.secondsBTarget
 
+  setMinutes(event) {
+    event.preventDefault()
+    this.minutesTarget.innerHTML = this.workminutesTarget.value
+    this.minutesBTarget.innerHTML = this.breakminutesTarget.value
+  }
 
  // define method 'appTimer'
   appTimer() {
@@ -38,9 +53,9 @@ export default class extends Controller {
     sessionAmount = Number.parseInt(this.minutesTarget.textContent)
     let totalSeconds = sessionAmount * 60; // to calculate the total seconds
 
-  if(this.trigger) {
-    totalSeconds = Number.parseInt(minuteDiv.textContent)*60 + Number.parseInt(secondDiv.textContent);
-  }
+    if(this.trigger) {
+      totalSeconds = Number.parseInt(minuteDiv.textContent)*60 + Number.parseInt(secondDiv.textContent);
+    }
 
 
   if(this.state) {
@@ -75,8 +90,6 @@ export default class extends Controller {
       }
 
       this.myInterval = setInterval(updateSeconds, 1000);
-    }   else {
-      alert('Session has already started.')
     }
   }
 
@@ -113,7 +126,7 @@ export default class extends Controller {
     this.secondsTarget.innerText = ' 00'
     }
 
-      // storeTime = Number.parseInt(this.minutesTarget.textContent) * 60 - minutesLeft // ????
+
 
 
 ////////////////////////// BREAK TIMER
@@ -127,9 +140,10 @@ export default class extends Controller {
     const secondDivB = this.secondsBTarget
 
     sessionAmountB = Number.parseInt(this.minutesBTarget.textContent)
+
     let totalSecondsB = sessionAmountB * 60; // to calculate the total seconds
 
-    if(this.trigger) {
+    if(this.triggerB) {
       totalSecondsB = Number.parseInt(minuteDivB.textContent)*60 + Number.parseInt(secondDivB.textContent);
     }
 
@@ -139,12 +153,15 @@ export default class extends Controller {
 
 
       const updateSecondsB = () => { // is responsible for updating the timer display every second
-      console.log("timer runs")
+        console.log("break runs")
 
-      totalSecondsB--; // value is reduced by one
 
-      let minutesLeftB = Math.floor(totalSecondsB/60); // current minutes
-      let secondsLeftB = totalSecondsB % 60;  // current seconds
+        totalSecondsB--; // value is reduced by one
+
+
+        let minutesLeftB = Math.floor(totalSecondsB/60); // current minutes
+        let secondsLeftB = totalSecondsB % 60;  // current seconds
+        console.log(minutesLeftB, secondsLeftB)
 
         if(secondsLeftB < 10) {
           secondDivB.textContent = '0' + secondsLeftB;
@@ -162,8 +179,6 @@ export default class extends Controller {
       }
 
       this.myIntervalB = setInterval(updateSecondsB, 1000);
-    }   else {
-      alert('Break has already started.')
     }
   }
 
@@ -175,4 +190,18 @@ export default class extends Controller {
     this.triggerB = true;
   }
 
+  stopBreak() {
+    console.log('break is stopped')
+    clearInterval(this.myIntervalB);
+    this.stateB = true;
+    let secondspastB = Number.parseInt(this.storeTimeB)*60 - Number.parseInt(this.minutesBTarget.innerText)*60 - Number.parseInt(this.secondsBTarget.innerText)
+    fetch(`http://localhost:3000/update_break_time?time=${secondspastB}`
+    //, { headers: { 'Accept': 'text/plain' } }
+    ).then(response => response.text()).then(data => console.log(data))
+
+    console.log('break should be reset now')
+    // Reset it to original time, a small notification would be nice
+    this.minutesBTarget.innerText = this.storeTimeB
+    this.secondsBTarget.innerText = ' 00'
+  }
 }

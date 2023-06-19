@@ -1,20 +1,16 @@
-<%# no frontend because user cannot log in %>
-<style>
-    body {
-      background-image: url("https://images.wallpaperscraft.com/image/single/house_fairy_tale_art_101615_3840x2160.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-</style>
 <div class="container profile-body">
   <div class="">
     <%# avatar %>
-    <div class="btn-home"><%= "AVATAR" %></div>
+    <div class="">
+      <%= link_to avatars_path, class: "text-decoration-none" do %>
+        <i class="fa-sharp fa-solid fa-user"></i><%= " AVATAR" %>
+      <% end %>
+    </div>
     <br>
+
     <%# profile information %>
 
     <%# acheivements %>
-
     <div class="btn-acheievement">
       <%= link_to achievements_path, class: "text-decoration-none text-btn-acheievement" do %>
         <i class="fa-sharp fa-solid fa-trophy" style="color: #ded8e5;"></i><%= "ACHIEVEMENTS" %>
@@ -22,32 +18,48 @@
     </div>
     <br>
 
-     <div class="justify-content-center m-2 mt-3 level"><%= @current_level %></div>
-
-    <%# update button %>
-    <%# <%= link_to "edit", "#", class: "btn btn-profile btn-success" %>
-
     <%# Statistics %>
     <div class="">
-      <div>
-        <div class="btn-home"><%= "STATISTICS" %></div>
-      </div>
-      <div class="text-cente d-flex flex-wrap">
-        <div class="btn-text btn-profile"><%= "This week you have 9 podomoros" %><br><%= "59min" %></div>
-        <div class="btn-text btn-profile"><%= "This month you have 19 podomoros" %><br><%= "11hr 59min" %></div>
+      <div class="btn-home"><%= "STATISTICS" %></div>
+      <div class="text-center d-flex flex-wrap">
         <div class="btn-text btn-profile"><%= "Total study time" %><br><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></div>
         <div class="btn-text btn-profile"><%= "Total break time" %><br><%= "#{@total_break_hours}hr #{@total_break_minutes}min" %></div>
-        <div class="btn-text btn-profile"><%= "Completed podomoros" %><br><%= "100" %></div>
-        <div class="btn-text btn-profile"><%= "Completed tasks" %><br><%= "10" %></div>
-        <div class="btn-text btn-profile"><%= "Average pomodoro per week" %><br><%= "999" %></div>
-        <div class="btn-text btn-profile"><%= "Average pomodoro per month" %><br><%= "99" %></div>
-        <div class="btn-text btn-profile"><%= "Most productive day" %><br><%= "25/12/2022" %><br><%= "16hr" %></div>
+        <div class="btn-text btn-profile"><%= "#{@profile.experience}exp"%></div>
+        <%# Completed podomoros, completed tasks, average podomoro per week/month, most productive day(calender), amount of podomoros this week/month %>
       </div>
     </div>
 
-    <%# delete profile %>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-6">
+          <div class="card text-center" style="width: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></h5>
+              <p> Your Total Study Time</p>
+              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="card text-center" style="width: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= "#{@current_level}" %></h5>
+              <p> Your Total Break Time</p>
+              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+
+      <%# delete profile %>
     <br>
-    <div class="btn-profile-delete mt-4">
+    <div>
       <%= link_to profile_path(current_user.profile), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-decoration-none text-btn-acheievement" do %>
         <i class="fa-solid fa-skull fa-sm" style="color: #d6d6d6;"></i><%= "Delete Profile" %>
       <% end %>
