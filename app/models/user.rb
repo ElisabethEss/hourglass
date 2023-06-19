@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :profile
+  has_many :user_avatars
+  has_many :avatars, through: :user_avatars
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
