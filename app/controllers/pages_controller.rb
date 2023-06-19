@@ -2,6 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
     # @image = current_user.profile.avatars.first
+    if user_signed_in?
+      @level = current_user.profile.level
+    end
   end
 
   def update_study_time

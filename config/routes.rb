@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :profiles, only: %i[index destroy]
   resources :achievements, only: [:index]
-  resources :avatars
+  resources :avatars, only: [:index]
   get '/update_study_time', to: 'pages#update_study_time'
 end
