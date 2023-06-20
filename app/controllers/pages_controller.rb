@@ -2,14 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
   def home
     # @image = current_user.profile.avatars.first
-    @total_experience = current_user.profile.total_study_time
-    @total_study_hours = current_user.profile.total_study_time / 60 / 60
-    @total_study_minutes = current_user.profile.total_study_time / 60 % 60
-    @total_break_hours = current_user.profile.total_break_time / 60 / 60
-    @total_break_minutes = current_user.profile.total_break_time / 60 % 60
-
     if user_signed_in?
-      @level = current_user.level
+      @level = current_user.profile.level
     end
 
     @current_level = 1
@@ -54,5 +48,4 @@ class PagesController < ApplicationController
     # BUT: I don't just to update, I want to add!
     current_user.profile.update(total_break_time: current_user.profile.total_break_time + params[:time].to_i)
   end
-
 end

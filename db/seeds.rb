@@ -29,7 +29,7 @@ puts "User created"
 user.profile.update!(
   total_study_time: 3300,
   total_break_time: 200,
-  experience: 3300
+  experience: 3599
 )
 
 puts "User's profile created"
