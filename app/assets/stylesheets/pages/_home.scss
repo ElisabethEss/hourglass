@@ -15,6 +15,16 @@ body {
   background-image: url(https://voyagecomics.com/wp-content/uploads/2021/10/smaug_dragon.webp);
 }
 
+.timerbox {
+  /* From https://css.glass */
+background: rgba(37, 36, 36, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(37, 36, 36, 0.42);
+}
+
 
 
 #sandtimer {
@@ -64,14 +74,22 @@ button:hover {
 }
 
 .main-card {
-  background-color: #d9d9d9;
-  border-radius: 10px;
+  // background-color: #d9d9d9;
+  // border-radius: 10px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+  color:  #ffcc32;
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(37, 36, 36, 0.42);
 }
 
 .container {
