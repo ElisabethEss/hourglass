@@ -9,7 +9,7 @@
   max-width: 100%;
   max-height: 100%;
   border-radius: 4px;
-  box-shadow: 2px 2px 5px 1px rgba(0,0,0,.8);
+  box-shadow: 2px 2px 5px 1px #7DB1AE;
 }
 
 .text-container {
@@ -19,10 +19,10 @@
 }
 
 .row-container {
-  background-color: rgba(190, 155, 231, 0.45);
-  margin: 16px;
+  background-color: #7DB1AE;
+  margin-top: 16px;
+  margin-bottom: 16px;
   border-radius: 4px;
-  // box-shadow: 10px 10px 20px 8px rgba(1, 1, 1, 0.8);
 }
 
 .grayscale {
@@ -30,17 +30,21 @@
 }
 
 .blurred-box {
-background: rgba(201, 131, 196, 0.475);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3.0px);
--webkit-backdrop-filter: blur(3.2px);
-border: 1px solid rgba(94, 12, 87, 0.07);
+  background: rgba(131, 181, 176, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.0px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 1px solid rgba(94, 12, 87, 0.07);
 }
 
+.clickable {
+  cursor: pointer;
+}
 
-
-
+.achievement-modal-content {
+  background-color: rgb(149, 154, 127);
+}
 
 
 

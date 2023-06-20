@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-size blurred-box navbar-wide row-container">
+<nav class="navbar navbar-expand-sm navbar-size blurred-box navbar-wide">
   <div class="container-fluid flex-column justify-content-between">
   <div class="d-flex justify-content-between">
     <div style="width: 10%; height: auto;">
@@ -7,7 +7,15 @@
       <% end %>
     </div>
       <% unless current_user.nil? %>
+<<<<<<< HEAD
         <%= "Lv.#{current_user.profile.level}" %>
+=======
+        <% if current_user.profile.level.nil? %>
+          <%= "Lv.1" %>
+        <% else %>
+          <%= "Lv.#{current_user.profile.level.level}" %>
+        <% end %>
+>>>>>>> master
       <% end %>
     <div>
       <% unless current_user.nil? %>

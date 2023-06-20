@@ -1,23 +1,8 @@
-<div>
-  <%= image_tag "logo.png" %>
-</div>
+<%# current avatar %>
+<%= image_tag("avatars/#{@profile.avatar.name}") %>
 
-<div class="selection">
-  <div class="avatar-select">
-    <%= image_tag "samurai.jpg", class: "button" %>
-  </div>
-  <div class="avatar-select">
-    <%= image_tag "logo.png", class: "button" %>
-  </div>
-  <div class="avatar-select">
-    <%= image_tag "logo.png", class: "button" %>
-  </div>
-  <div class="avatar-select">
-    <%= image_tag "logo.png", class: "button" %>
-  </div><div class="avatar-select">
-    <%= image_tag "logo.png", class: "button" %>
-  </div>
-  <div class="avatar-select">
-    <%= image_tag "logo.png", class: "button" %>
-  </div>
-</div>
+
+<%# All avatars %>
+<% Avatar.all.each do |a| %>
+  <%= link_to image_tag("avatars/#{a.name}"), user_avatars_path(avatar_id: a.id), data: {turbo_method: :post} %>
+<% end %>

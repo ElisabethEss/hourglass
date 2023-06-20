@@ -1,6 +1,6 @@
 class AvatarsController < ApplicationController
   def index
-    session[:image] = params[:image] if params[:image].present?
-    @image = session[:image] || "default_image.jpg"
+    @profile = current_user.profile
+    @avatar = @profile.avatar&.name
   end
 end
