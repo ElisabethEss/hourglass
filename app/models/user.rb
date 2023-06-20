@@ -14,9 +14,12 @@ class User < ApplicationRecord
     Profile.create!(user: self)
   end
 
-
   def getlevel
     self.profile.level.level
+  end
+
+  def getavatar
+    self.profile.user_avatar.avatar
   end
 
   # def level

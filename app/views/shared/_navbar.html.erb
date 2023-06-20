@@ -7,7 +7,11 @@
       <% end %>
     </div>
       <% unless current_user.nil? %>
-        <%= "Lv.#{current_user.profile.level.level}" %>
+        <% if current_user.profile.level.nil? %>
+          <%= "Lv.1" %>
+        <% else %>
+          <%= "Lv.#{current_user.profile.level.level}" %>
+        <% end %>
       <% end %>
     <div>
       <% unless current_user.nil? %>
