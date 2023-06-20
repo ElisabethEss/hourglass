@@ -5,6 +5,7 @@
       <%= link_to avatars_path, class: "text-decoration-none" do %>
         <i class="fa-sharp fa-solid fa-user"></i><%= " AVATAR" %>
       <% end %>
+      <%= image_tag("avatars/#{@profile.avatar.name}") %>
     </div>
     <br>
     <%# Statistics %>
