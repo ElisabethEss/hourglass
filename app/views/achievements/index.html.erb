@@ -3,7 +3,7 @@
 <div class="achivements-container">
 <% @achievements.each do |achievement| %>
 <% if @total_time >= achievement.studytime %>
-<div class="row row-container blurred-box" data-toggle="modal">
+<div class="row row-container blurred-box clickable" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
   <div class="col-4">
     <div class="image-container">
     <%= image_tag "hourglass1.avif", class:"placeholder-image"%>
@@ -15,6 +15,24 @@
       <%= achievement.name %>
       <br><br>
       <%= achievement.description %>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="achievements-modal-<%= achievement.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content achievement-modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
@@ -50,3 +68,26 @@
   <div class="firefly"></div>
   <div class="firefly"></div>
   <div class="firefly"></div>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<br>
+<br>
+
+
+<%# working button %>
+<a class="wave-btn" href="javascript:void(0)">
+  <span>HOVER ME</span>
+  <div class="wave"></div>
+</a>
+
+
+<%= link_to "#", class: "wave-btn" do %>
+  <span>HOVER ME</span>
+  <div class="wave"></div>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
