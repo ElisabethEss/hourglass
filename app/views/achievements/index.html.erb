@@ -2,56 +2,55 @@
   <%# code for achiements to show %>
 <div class="achivements-container">
 <% @achievements.each do |achievement| %>
-<% if @total_time >= achievement.studytime %>
-<div class="row row-container blurred-box clickable" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
-  <div class="col-4">
-    <div class="image-container">
-    <%= image_tag "hourglass1.avif", class:"placeholder-image"%>
-      <%# <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image"> %>
-    </div>
-  </div>
-  <div class="col-8">
-    <div class="text-container">
-      <%= achievement.name %>
-      <br><br>
-      <%= achievement.description %>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="achievements-modal-<%= achievement.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content achievement-modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <% if @total_time >= achievement.studytime %>
+    <div class="row row-container blurred-box clickable" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
+      <div class="col-4">
+        <div class="image-container">
+        <%= image_tag "hourglass1.avif", class:"placeholder-image"%>
+          <%# <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image"> %>
+        </div>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+      <div class="col-8">
+        <div class="text-container">
+          <%= achievement.name %>
+          <br><br>
+          <%= achievement.description %>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<% else %>
-<div class="row row-container grayscale blurred-box">
-  <div class="col-4">
-    <div class="image-container">
-      <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
+    <!-- Modal -->
+    <div class="modal fade" id="achievements-modal-<%= achievement.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content achievement-modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><%= achievement.name %></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= achievement.story %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col-8">
-    <div class="text-container">
-      <%= achievement.name %>
-      <br><br>
-      <%= achievement.description %>
+    <% else %>
+    <div class="row row-container grayscale blurred-box">
+      <div class="col-4">
+        <div class="image-container">
+          <img src="https://img.freepik.com/premium-photo/hourglass-image-fantasy-generative-ai_251317-1957.jpg?w=826" alt="Placeholder Image" class="placeholder-image">
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="text-container">
+          <%= achievement.name %>
+          <br><br>
+          <%= achievement.description %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<% end %>
+  <% end %>
 <% end %>
 </div>
 </div>
@@ -73,20 +72,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 <br>
 <br>
-
-
-<%# working button %>
-<a class="wave-btn" href="javascript:void(0)">
-  <span>HOVER ME</span>
-  <div class="wave"></div>
-</a>
-
-
-<%= link_to "#", class: "wave-btn" do %>
-  <span>HOVER ME</span>
-  <div class="wave"></div>
-<% end %>
-
 <br>
 <br>
 <br>

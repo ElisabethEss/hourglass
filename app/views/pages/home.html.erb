@@ -1,5 +1,8 @@
 
 <div data-controller="timer">
+  <% unless current_user.nil? %>
+    <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}") %>
+  <% end %>
 <div class="video-in">
   <video class="video" data-timer-target="video" muted autoplay>
   <source src=
@@ -10,6 +13,20 @@
 
 <div class="main-card video-in-slow">
   <div id="form-container" data-timer-target="form" data-action="submit->timer#submitForm">
+
+
+  <div class="main-card time-space blurred-box">
+   <div class="container">
+      <div class="row">
+        <div class="col-6">
+          <div class="card text-center" style="width: 12rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></h5>
+              <p> Total Study Time</p>
+              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+            </div>
+          </div>
+        </div>
 
     <form action="home" data-timer-target="form" method="get" class="form-example" data-action="submit->timer#setMinutes">
       <div>
