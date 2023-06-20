@@ -18,8 +18,8 @@ export default class extends Controller {
     // Show the time background
     this.timeTarget.classList.remove("d-none");
     // hide video
-    this.videoTarget.classList.add("d-none");
-    console.log(this.timeTarget)
+    //this.videoTarget.classList.add("d-none");
+    //console.log(this.timeTarget)
   }
 
     myInterval; // used to store intervall ID for timer
