@@ -25,9 +25,10 @@ puts "Levels created"
 # create 5 avatars
 Avatar.create(name: "avatar_1.jpg", level: 1)
 Avatar.create(name: "avatar_2.jpg", level: 2)
-Avatar.create(name: "avatar_3.jpg", level: 3)
-Avatar.create(name: "avatar_4.jpg", level: 4)
-Avatar.create(name: "avatar_5.jpg", level: 5)
+Avatar.create(name: "avatar_3.jpg", level: 4)
+Avatar.create(name: "avatar_4.jpg", level: 6)
+Avatar.create(name: "avatar_5.jpg", level: 8)
+Avatar.create(name: "avatar_6.jpg", level: 10)
 
 puts "Avatars created"
 

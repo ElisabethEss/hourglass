@@ -14,13 +14,13 @@
       <% end %>
     <div>
       <% unless current_user.nil? %>
-      <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
-      <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Logout" data-boundary="window"></i>
-      <% end %>
-      <% else %>
-      <%= link_to new_user_session_path, method: :create, data: { turbo_method: :create } do %>
-      <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Login" data-boundary="window"></i>
-      <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
+          <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Logout" data-boundary="window"></i>
+        <% end %>
+        <% else %>
+          <%= link_to new_user_session_path, method: :create, data: { turbo_method: :create } do %>
+          <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Login" data-boundary="window"></i>
+        <% end %>
       <% end %>
     </div>
         <% unless current_user.nil? %>
