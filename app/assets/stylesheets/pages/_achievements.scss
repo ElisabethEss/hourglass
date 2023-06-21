@@ -42,18 +42,27 @@
   cursor: pointer;
 }
 
-.achievement-modal-content {
-  background-color: rgb(149, 154, 127);
-}
-
 p {
   color: white;
 }
- 
 
+.modal-background {
+  background: rgba(75, 228, 225, 0.372);
+  border-radius: 1px;
+  box-shadow: 0 4px 30px rgba(203, 158, 99, 0.257);
+  backdrop-filter: blur(5.0px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 1px solid #7DB1AE;
+}
 
-
-
+.modal-box {
+  background: rgba(255, 176, 149, 0.7);
+  border-radius: 1px;
+  box-shadow: 0 4px 30px rgba(203, 158, 99, 0.257);
+  backdrop-filter: blur(5.0px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 1px solid #7DB1AE;
+}
 
 
 
