@@ -1,6 +1,7 @@
 <div data-controller="timer">
-
-  <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}") %>
+  <% unless current_user.nil? %>
+    <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}") %>
+  <% end %>
 
   <div class="main-card time-space">
    <div class="container">
