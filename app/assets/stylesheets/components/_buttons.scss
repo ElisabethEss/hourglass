@@ -5,9 +5,10 @@
 }
 
 .wave-btn {
-  width: 240px;
+  width: 250px;
   margin-top: 20px;
-  padding: 20px 30px;
+  border-radius: 2px;
+  padding: 10px 10px;
   position: relative;
   display: block;
   text-decoration: none;
@@ -15,8 +16,9 @@
   text-align: center;
 
   &:hover {
-    .wave {
+    .wave::before, .wave::after {
       top: -120px;
+      transition: 1.4s;
     }
   }
 
@@ -29,7 +31,7 @@
   }
 
   .wave {
-    width: 240px;
+    width: 250px;
     height: 200px;
     background-color: #DE785F;
     box-shadow: inset 0 0 50px #F3B285;
