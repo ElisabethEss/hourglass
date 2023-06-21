@@ -2,7 +2,9 @@
   <div class="">
     <%# avatar %>
     <div class="">
-      <%= image_tag("avatars/#{@profile.avatar.name}", class: "profile-avatar") %>
+      <% if current_user.present? && current_user.profile.user_avatar.present? %>
+        <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}" , class: "rounded, main-avatar-picture") %>
+      <% end %>
     </div>
     <br>
 

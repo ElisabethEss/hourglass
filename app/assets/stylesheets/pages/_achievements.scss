@@ -1,21 +1,25 @@
 .image-container {
   width: 100%;
   height: 100%;
-  padding: 8px;
+  padding: 22px;
 }
 
 .placeholder-image {
   max-width: 100%;
   max-height: 100%;
   border-radius: 1px;
-  box-shadow: 2px 2px 5px 1px #7DB1AE;
+  box-shadow: 8px 7px 0 0 #FDD86A;
 }
 
 .text-container {
   width: 100%;
   height: 100%;
-  padding: 10px;
-
+  // padding: 22px;
+  font-size:17px;
+  padding-top: 32px;
+  padding-left: 0;
+  padding-bottom: 32px;
+  padding-right: 32px;
 }
 
 .row-container {
@@ -47,7 +51,7 @@ p {
 }
 
 .modal-background {
-  background: rgba(75, 228, 225, 0.372);
+  // background: rgba(75, 228, 225, 0.372);
   border-radius: 1px;
   box-shadow: 0 4px 30px rgba(203, 158, 99, 0.257);
   backdrop-filter: blur(5.0px);
@@ -56,15 +60,17 @@ p {
 }
 
 .modal-box {
-  background: rgba(255, 176, 149, 0.7);
+  background: rgba(104, 223, 221, 0.775);
   border-radius: 1px;
   box-shadow: 0 4px 30px rgba(203, 158, 99, 0.257);
   backdrop-filter: blur(5.0px);
   -webkit-backdrop-filter: blur(5.2px);
-  border: 1px solid #7DB1AE;
+  // border: 1px solid #edba4c;
 }
 
-
+.modal-box-header {
+  border-bottom: 0 none;
+}
 
 
 

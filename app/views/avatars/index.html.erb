@@ -2,30 +2,32 @@
 <div class="">
   <div class="blurred-avatar my-4 p-4">
     <div class="main-avatar p-4">
-      <%= image_tag("avatars/#{@profile.avatar.name}", class: "main-avatar", style: 'height: 100%; width: 100%; object-fit: contain;') %>
+      <% if current_user.present? && current_user.profile.user_avatar.present? %>
+        <%= image_tag("avatars/#{@profile.avatar.name}", class: "main-avatar", style: 'height: 100%; width: 100%; object-fit: contain;') %>
+      <% end %>
     </div>
   </div>
   <%# All avatars %>
   <div>
   <div>
-    <div class="container my-4">
+    <div class="avatar-container d-flex my-4">
       <% Avatar.all.each do |a| %>
-        <% if @profile.level.level >= a.level%>
-          <div class="" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= a.id %>">
+        <% if @profile.level.present? %>
+          <% if @profile.level.level >= a.level%>
             <div class="avatar-box">
               <div class="avatars">
                 <%= link_to image_tag("avatars/#{a.name}", class:""), user_avatars_path(avatar_id: a.id), data: {turbo_method: :post} %>
               </div>
             </div>
-          </div>
-        <% else %>
-          <div class="">
-            <div class="avatar-box">
-              <div class="inactive-avatar avatars">
-                <%= link_to_if false, image_tag("avatars/#{a.name}", class: "") %>
+          <% else %>
+            <div class="">
+              <div class="avatar-box">
+                <div class="inactive-avatar avatars">
+                  <%= link_to_if false, image_tag("avatars/#{a.name}", class: "") %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
