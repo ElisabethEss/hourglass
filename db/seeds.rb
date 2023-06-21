@@ -14,7 +14,7 @@ Avatar.destroy_all
 
 
 # create 10 levels
-(1..10).each do |lv|
+(1..100).each do |lv|
   min_experience = (1000 * (lv - 1) * 1.2) + 1
   max_exp = 1000 * lv * 1.2
   Level.create!(level: lv, experience: min_experience, max_experience: max_exp)

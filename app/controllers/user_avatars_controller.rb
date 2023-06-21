@@ -5,7 +5,6 @@ class UserAvatarsController < ApplicationController
       avatar_id: params[:avatar_id],
       profile: current_user.profile       # or however you retrieve the current user
     )
-    flash[:notice] = 'Avatar updated.' # just a suggestion
     @current_avatar = avatar
     redirect_to avatars_path           # just a suggestion
   end
