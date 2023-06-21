@@ -60,7 +60,6 @@
 
 
 .header-text{
-  width: 400px;
   letter-spacing: 2px;
   border-radius: 8px;
   font-family: 'Skranji', cursive;
@@ -161,4 +160,9 @@
 .btn-profile-delete:active{
   background: radial-gradient(circle, #e5e5e5, #7f7f7f);
   box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
+}
+
+.profile-avatar {
+  height: 300px;
+  width: 300px;
 }
