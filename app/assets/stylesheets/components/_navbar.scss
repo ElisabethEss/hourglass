@@ -1,20 +1,5 @@
-.navbar-lewagon {
-  margin: auto;
-  height: 100%;
-  max-width: 620px;
-  justify-content: space-between;
-  background: #121111;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
-}
-
-.navbar-size .navbar-brand img {
-  width: 160px;
-  border-radius: 80px;
 }
 
 .level {
@@ -31,14 +16,51 @@
   background: #262d3897;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  height: 50px;
-  width: 150px;
+  height: 30px; /* Adjusted height */
+  width: 80px; /* Adjusted width */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.5s ease;
+  padding: 0; /* Remove padding */
+  font-size: 12px; /* Adjust font size */
 }
 
 .btn-navbar-new-transition:hover {
   background-color: #53273f;
+}
+
+.navbar-spacing {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: 100px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.zelda-font {
+  font-family: 'The Wild Breath of Zelda', sans-serif;
+  color: #FDD86A;
+  font-size: 74px;
+  line-height: 34px;
+  -webkit-text-stroke: 1px #DE785F;
+  margin-top: 25px;
+}
+
+.nav-icon {
+  color: #ffffff;
+  font-size: 36px;
+  margin-top: 30px;
+}
+
+.nav-icon:hover {
+  color: #FDD86A;
+  -webkit-text-stroke: 1px #DE785F;
+
+}
+
+.nav-width {
+  width: 100%;
+  padding: 8px;
+  align-items: center;
 }

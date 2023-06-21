@@ -1,35 +1,31 @@
-<nav class="navbar navbar-expand-sm navbar-size blurred-box navbar-wide">
-  <div class="container-fluid flex-column justify-content-between">
-  <div class="d-flex justify-content-between">
-    <div style="width: 10%; height: auto;">
-      <%= link_to root_path do %>
-        <%= image_tag "hourglass1.avif", style: "max-width: 100%; height:auto;"%>
+<nav class="navbar navbar-expand-sm navbar-spacing">
+  <div class="d-flex justify-content-between nav-width">
+    <div style="">
+      <%= link_to root_path, style: "text-decoration: none;" do %>
+        <p class="zelda-font">Dragon's<br>&nbsp;&nbsp;Hourglass</p>
       <% end %>
     </div>
-      <% unless current_user.nil? %>
-<<<<<<< HEAD
-        <%= "Lv.#{current_user.profile.level}" %>
-=======
-        <% if current_user.profile.level.nil? %>
-          <%= "Lv.1" %>
-        <% else %>
-          <%= "Lv.#{current_user.profile.level.level}" %>
-        <% end %>
->>>>>>> master
-      <% end %>
     <div>
       <% unless current_user.nil? %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-danger", data: { turbo_method: :delete } %>
+      <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
+      <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Logout" data-boundary="window"></i>
+      <% end %>
       <% else %>
-      <%= link_to "Login", new_user_session_path%>
+      <%= link_to new_user_session_path, method: :create, data: { turbo_method: :create } do %>
+      <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Login" data-boundary="window"></i>
+      <% end %>
       <% end %>
     </div>
-  </div>
-  <div class="d-flex justify-content-between mt-3">
         <% unless current_user.nil? %>
-          <%= link_to "Avatar", avatars_path, class: "btn btn-navbar-new btn-navbar-new-transition m-2" %>
-          <%= link_to "Achievements", achievements_path, class: "btn btn-navbar-new btn-navbar-new-transition m-2" %>
-          <%= link_to "Profile", profiles_path, class: "btn btn-navbar-new btn-navbar-new-transition m-2" %>
+          <a href="<%= avatars_path %>">
+            <i class="fa-solid fa-hat-wizard fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Avatars" data-boundary="window"></i>
+          </a>
+          <a href="<%= achievements_path %>">
+            <i class="fa-solid fa-dragon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Achievements" data-boundary="window"></i>
+          </a>
+          <a href="<%= profiles_path %>">
+            <i class="fa-solid fa-scroll fa-xl fa-scrolls nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Profile" data-boundary="window"></i>
+          </a>
         <% end %>
     </div>
   </div>
