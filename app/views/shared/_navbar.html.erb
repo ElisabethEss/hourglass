@@ -5,28 +5,27 @@
         <p class="zelda-font">Dragon's<br>&nbsp;&nbsp;Hourglass</p>
       <% end %>
     </div>
-        <% unless current_user.nil? %>
-          <a href="<%= avatars_path %>">
-            <i class="fa-solid fa-hat-wizard fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Avatars" data-boundary="window"></i>
-          </a>
-          <a href="<%= achievements_path %>">
-            <i class="fa-solid fa-dragon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Achievements" data-boundary="window"></i>
-          </a>
-          <a href="<%= profiles_path %>">
-            <i class="fa-solid fa-scroll fa-xl fa-scrolls nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Profile" data-boundary="window"></i>
-          </a>
-        <% end %>
+    <% unless current_user.nil? %>
+      <a href="<%= avatars_path %>">
+        <i class="fa-solid fa-hat-wizard fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Avatars" data-boundary="window"></i>
+      </a>
+      <a href="<%= achievements_path %>">
+        <i class="fa-solid fa-dragon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Achievements" data-boundary="window"></i>
+      </a>
+      <a href="<%= profiles_path %>">
+        <i class="fa-solid fa-scroll fa-xl fa-scrolls nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Profile" data-boundary="window"></i>
+      </a>
+    <% end %>
     <div>
-      <% unless current_user.nil? %>
-      <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
-      <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Logout" data-boundary="window"></i>
-      <% end %>
+      <% if current_user.present? %>
+        <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
+          <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Logout" data-boundary="window"></i>
+        <% end %>
       <% else %>
-      <%= link_to new_user_session_path, method: :create, data: { turbo_method: :create } do %>
-      <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Login" data-boundary="window"></i>
+        <%= link_to new_user_session_path, method: :create, data: { turbo_method: :post } do %>
+          <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Login" data-boundary="window"></i>
+        <% end %>
       <% end %>
-      <% end %>
-    </div>
     </div>
   </div>
 </nav>
