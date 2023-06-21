@@ -1,11 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'form', 'time', 'video']
+  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'timerform', 'form', 'time']
 
   connect() {
     console.log("Hello to this timer")
     console.log(this.minutesBTarget)
+    console.log(this.timeTarget, "whatever")
       // Download ring tone
       // const bells = new Audio('./sounds/bell.wav');
   }
@@ -14,12 +15,14 @@ export default class extends Controller {
   submitForm(event) {
     event.preventDefault();
     // Hide the form
-    this.formTarget.classList.add("d-none");
+    this.timerformTarget.classList.add("d-none");
+    console.log("first form should be hidden")
     // Show the time background
     this.timeTarget.classList.remove("d-none");
+    console.log("form should be added")
     // hide video
-    this.videoTarget.classList.add("d-none");
-    console.log(this.timeTarget)
+    //this.videoTarget.classList.add("d-none");
+    //console.log(this.timeTarget)
   }
 
     myInterval; // used to store intervall ID for timer
@@ -41,12 +44,15 @@ export default class extends Controller {
 
   setMinutes(event) {
     event.preventDefault()
+    this.submitForm(event)
     this.minutesTarget.innerHTML = this.workminutesTarget.value
     this.minutesBTarget.innerHTML = this.breakminutesTarget.value
+    console.log('set minutes')
   }
 
  // define method 'appTimer'
   appTimer() {
+    console.log('appTimer')
   // sessionAmount is assigned the value of the 'minutes' target's text content
     let sessionAmount = " "
     const minuteDiv = this.minutesTarget
@@ -115,7 +121,7 @@ export default class extends Controller {
     clearInterval(this.myInterval);
     this.state = true;
     let secondspast = Number.parseInt(this.storeTime)*60 - Number.parseInt(this.minutesTarget.innerText)*60 - Number.parseInt(this.secondsTarget.innerText)
-    fetch(`http://localhost:3000/update_study_time?time=${secondspast}`
+    fetch(`${window.location}update_study_time?time=${secondspast}`
     //, { headers: { 'Accept': 'text/plain' } }
     ).then(response => response.text()).then(data => console.log(data))
 
@@ -197,10 +203,10 @@ export default class extends Controller {
     clearInterval(this.myIntervalB);
     this.stateB = true;
     let secondspastB = Number.parseInt(this.storeTimeB)*60 - Number.parseInt(this.minutesBTarget.innerText)*60 - Number.parseInt(this.secondsBTarget.innerText)
-    fetch(`http://localhost:3000/update_break_time?time=${secondspastB}`
+    fetch(`${window.location}update_break_time?time=${secondspastB}`
     //, { headers: { 'Accept': 'text/plain' } }
     ).then(response => response.text()).then(data => console.log(data))
-
+    console.log(`${window.location}update_break_time?time=${secondspastB}`)
     console.log('break should be reset now')
     // Reset it to original time, a small notification would be nice
     this.minutesBTarget.innerText = this.storeTimeB
