@@ -3,7 +3,7 @@
 <div class="achivements-container">
 <% @achievements.each do |achievement| %>
   <% if @total_time >= achievement.studytime %>
-    <div class="row row-container blurred-box clickable" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
+    <div class="row row-container blurred-box clickable achi-hover" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
       <div class="col-4">
         <div class="image-container">
         <%= image_tag("#{achievement.image_path}", class:"placeholder-image") %>
@@ -11,7 +11,7 @@
       </div>
       <div class="col-8">
         <div class="text-container">
-          <%= content_tag(:span, achievement.name, style: "font-weight: bold;") %>
+          <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
           <br><br>
           <%= achievement.description %>
         </div>
@@ -40,7 +40,7 @@
       </div>
       <div class="col-8">
         <div class="text-container">
-          <%= achievement.name %>
+          <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
           <br><br>
           <%= achievement.description %>
         </div>
