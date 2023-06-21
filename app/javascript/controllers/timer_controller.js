@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'form', 'time']
+  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'form', 'time', 'video']
 
   connect() {
     console.log("Hello to this timer")
@@ -17,6 +17,8 @@ export default class extends Controller {
     this.formTarget.classList.add("d-none");
     // Show the time background
     this.timeTarget.classList.remove("d-none");
+    // hide video
+    this.videoTarget.classList.add("d-none");
     console.log(this.timeTarget)
   }
 
