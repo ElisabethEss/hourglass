@@ -2,7 +2,9 @@
 <div class="">
   <div class="blurred-avatar my-4 p-4">
     <div class="main-avatar m-auto">
-      <%= image_tag("avatars/#{@profile.avatar.name}", class: "rounded, main-avatar-picture")%>
+        <% if current_user.present? && current_user.profile.user_avatar.present? %>
+          <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}" , class: "rounded, main-avatar-picture") %>
+        <% end %>
     </div>
   </div>
   <%# All avatars %>

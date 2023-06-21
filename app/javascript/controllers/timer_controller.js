@@ -1,11 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'form', 'time', 'video']
+  static targets = ['minutes', 'seconds', 'minutesB', 'secondsB', 'profiles', 'workminutes', 'breakminutes', 'timerform', 'form', 'time']
 
   connect() {
     console.log("Hello to this timer")
     console.log(this.minutesBTarget)
+    console.log(this.timeTarget, "whatever")
       // Download ring tone
       // const bells = new Audio('./sounds/bell.wav');
   }
@@ -14,9 +15,11 @@ export default class extends Controller {
   submitForm(event) {
     event.preventDefault();
     // Hide the form
-    this.formTarget.classList.add("d-none");
+    this.timerformTarget.classList.add("d-none");
+    console.log("first form should be hidden")
     // Show the time background
     this.timeTarget.classList.remove("d-none");
+    console.log("form should be added")
     // hide video
     //this.videoTarget.classList.add("d-none");
     //console.log(this.timeTarget)
@@ -41,12 +44,15 @@ export default class extends Controller {
 
   setMinutes(event) {
     event.preventDefault()
+    this.submitForm(event)
     this.minutesTarget.innerHTML = this.workminutesTarget.value
     this.minutesBTarget.innerHTML = this.breakminutesTarget.value
+    console.log('set minutes')
   }
 
  // define method 'appTimer'
   appTimer() {
+    console.log('appTimer')
   // sessionAmount is assigned the value of the 'minutes' target's text content
     let sessionAmount = " "
     const minuteDiv = this.minutesTarget

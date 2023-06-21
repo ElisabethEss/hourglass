@@ -1,118 +1,107 @@
-
 <div data-controller="timer">
-  <% unless current_user.nil? %>
+  <% if current_user.present? && current_user.profile.user_avatar.present? %>
     <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}") %>
   <% end %>
 
-<%# <div class="video-in">%>
-<%#  <video class="video" data-timer-target="video" muted autoplay>%>
-<%#  <source src=%>
-<%#  "https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/B8xMmOScxizs8vvaw/videoblocks-dragon_fly_bnhopdg_9__9fd6b2493d7f1d731fb9d7676f479304__P360.mp4" type="video/mp4">%>
-<%#    https://www.shutterstock.com/shutterstock/videos/1030705019/preview/stock-footage-seamlessly-looping-cinematic-background-of-dragon-scales-animation-for-an-ancient-dark-age.webm" type="video/mp4"> %>
-<%#  </video>
-</div> %>
+  <!--<div class="video-in">
+    <video class="video" data-timer-target="video" muted autoplay>
+      <source src="https://dm0qx8t0i9gc9.cloudfront.net/watermarks/video/B8xMmOScxizs8vvaw/videoblocks-dragon_fly_bnhopdg_9__9fd6b2493d7f1d731fb9d7676f479304__P360.mp4" type="video/mp4">
+      <source src="https://www.shutterstock.com/shutterstock/videos/1030705019/preview/stock-footage-seamlessly-looping-cinematic-background-of-dragon-scales-animation-for-an-ancient-dark-age.webm" type="video/webm">
+    </video>
+  </div>-->
 
-<div class="main-card video-in-slow">
-  <div id="form-container" data-timer-target="form" data-action="submit->timer#submitForm">
+  <div class="main-card">
+    <div id="form-container">
+      <div class="main-card time-space blurred-box">
+        <div class="row">
+          <div class="col-6">
+            <div class="card text-center" style="width: 12rem;">
+              <div class="card-body">
+                <h5 class="card-title"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></h5>
+                <p>Total Study Time</p>
+                <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+              </div>
+            </div>
+          </div>
 
 
-  <div class="main-card time-space blurred-box">
-   <div class="container">
-      <div class="row">
-        <div class="col-6">
-          <div class="card text-center" style="width: 12rem;">
-            <div class="card-body">
-              <h5 class="card-title"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></h5>
-              <p> Total Study Time</p>
-              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+          <form action="home" data-timer-target="timerform" method="get" class="form-example" data-action="submit->timer#setMinutes">
+            <div>
+              <h2 class="header-text">Your Dragon Glass Timer</h2>
+              <p>In the mystical land of Pomodorania, where dragons roamed and productivity thrived, the Dragon's Hourglass was forged from the fiery breath of a time-obsessed dragon, ensuring that tasks were conquered with a sizzling determination.</p>
+            </div>
+            <div class="form-example">
+              <label for="minutes_work">How long do you want to work?</label>
+              <input type="text" name="name" id="name" required data-timer-target="workminutes">
+            </div>
+            <div class="form-example">
+              <label for="minutes_break">How long do you want to have a break?</label>
+              <input type="text" name="email" id="email" required data-timer-target="breakminutes">
+            </div>
+            <div class="form-example wave-btn">
+              <span><input type="submit" value="Let's start working!" style="background-color: rgba(0,0,0,0); border: none"></span>
+              <div class="wave"></div>
+            </div>
+          </form>
+        </div>
+
+        <div id="time-container" data-timer-target="time" class="d-none">
+          <div class="time-background">
+            <div class="counter-container justify-content-center">
+              <div class="time-container">
+                <div class="minutes" data-timer-target="minutes">25</div>
+                <div><p>:</p></div>
+                <div class="seconds" data-timer-target="seconds">00</div>
+              </div>
+              <div class="timer-buttons">
+                <button class="btn-fant" data-action="click->timer#appTimer">Start</button>
+                <button class="btn-fant" data-action="click->timer#pauseTimer">Pause</button>
+                <button class="btn-fant" data-action="click->timer#stopTimer">Stop</button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <div class="counter-container d-flex justify-content-center flex-column">
+                <h5 class="timer-header">Your Break Time</h5>
+                <div class="d-flex justify-content-center">
+                  <div class="minutes" data-timer-target="minutesB">5</div>
+                  <div><p>:</p></div>
+                  <div class="seconds" data-timer-target="secondsB">00</div>
+                </div>
+                <div class="d-flex justify-content-around">
+                  <button class="btn-fant" data-action="click->timer#appBreak">Start</button>
+                  <button class="btn-fant" data-action="click->timer#pauseBreak">Pause</button>
+                  <button class="btn-fant" data-action="click->timer#stopBreak">Stop</button>
+                </div>
+              </div>
+              <!--<div class="container">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="card text-center" style="width: 12rem;">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></h5>
+                        <p>Total Study Time</p>
+                        <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+                      <!--</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="card text-center" style="width: 12rem;">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= "#{@current_level}" %></h5>
+                        <p>Experience</p>
+                        <!--<a href="#" class="btn btn-primary">Go somewhere</a>-->
+                      <!--</div>
+                    </div>
+                  </div>
+                </div>
+              </div>-->
             </div>
           </div>
         </div>
-
-    <form action="home" data-timer-target="form" method="get" class="form-example" data-action="submit->timer#setMinutes">
-      <div>
-        <h2 class="header-text">Your Dragon Glass Timer</h2>
-        <p> In the mystical land of Pomodorania, where dragons roamed and productivity thrived, the Dragon's Hourglass was forged from the fiery breath of a time-obsessed dragon, ensuring that tasks were conquered with a sizzling determination. </p>
-      </div>
-
-      <div class="form-example">
-        <label for="minutes_work">How long do you want to work? </label>
-        <input type="text" name="name" id="name" required data-timer-target="workminutes">
-      </div>
-
-      <div class="form-example">
-        <label for="minutes_break">How long do you want to have a break? </label>
-        <input type="text" name="email" id="email" required data-timer-target="breakminutes">
-      </div>
-
-      <div class="form-example wave-btn">
-       <span><input type="submit" value="Let's start working!" style="background-color: rgba(0,0,0,0); border: none"></span>
-       <div class="wave"></div>
-      </div>
-    </form>
-  </div>
-
-   <div id="time-container" data-timer-target="time" class="d-none">
-      <div class="time-background">
-          <div class="counter-container justify-content-center">
-            <div class="time-container">
-              <div class="minutes" data-timer-target="minutes">25</div>
-              <div><p>:</p></div>
-              <div class="seconds" data-timer-target="seconds">00</div>
-            </div>
-            <div class=timer-buttons>
-              <button class="btn-fant" data-action="click->timer#appTimer">Start</button>
-              <button class="btn-fant" data-action="click->timer#pauseTimer">Pause</button>
-              <button class="btn-fant" data-action="click->timer#stopTimer">Stop</button>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-center">
-            <div class="counter-container d-flex justify-content-center flex-column">
-              <h5 class="timer-header">Your Break Time</h5>
-              <div class="d-flex justify-content-center">
-                <div class="minutes" data-timer-target="minutesB">5</div>
-                <div><p>:</p></div>
-                <div class="seconds" data-timer-target="secondsB">00</div>
-              </div>
-
-              <div class="d-flex justify-content-around">
-                <button class="btn-fant" data-action="click->timer#appBreak">Start</button>
-                <button class="btn-fant" data-action="click->timer#pauseBreak">Pause</button>
-                <button class="btn-fant" data-action="click->timer#stopBreak">Stop</button>
-              </div>
-            </div>
-
-            <div class="container">
-              <div class="row">
-                <div class="col-6">
-                  <div class="card text-center" style="width: 12rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></h5>
-                      <p> Total Study Time</p>
-                      <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-6">
-                  <div class="card text-center" style="width: 12rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= "#{@current_level}" %></h5>
-                      <p> Experience</p>
-                      <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <div>
       </div>
     </div>
+  </div>
 </div>
-</div>
-
 
 <div class="firefly"></div>
 <div class="firefly"></div>
