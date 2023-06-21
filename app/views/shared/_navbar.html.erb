@@ -5,6 +5,13 @@
         <p class="zelda-font">Dragon's<br>&nbsp;&nbsp;Hourglass</p>
       <% end %>
     </div>
+      <% unless current_user.nil? %>
+        <% if current_user.profile.level.nil? %>
+          <%= "Lv.1" %>
+        <% else %>
+          <%= "Lv.#{current_user.profile.level.level}" %>
+        <% end %>
+      <% end %>
     <div>
       <% unless current_user.nil? %>
       <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
