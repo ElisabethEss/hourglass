@@ -1,36 +1,34 @@
 <%# current avatar %>
 <div class="">
   <div class="blurred-avatar my-4 p-4">
-    <div class="main-avatar m-auto">
-        <% if current_user.present? && current_user.profile.user_avatar.present? %>
-          <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}" , class: "rounded, main-avatar-picture") %>
-        <% end %>
+    <div class="main-avatar p-4">
+      <% if current_user.present? && current_user.profile.user_avatar.present? %>
+        <%= image_tag("avatars/#{@profile.avatar.name}", class: "main-avatar", style: 'height: 100%; width: 100%; object-fit: contain;') %>
+      <% end %>
     </div>
   </div>
   <%# All avatars %>
   <div>
   <div>
-    <div class="container blurred-other-avatar">
+    <div class="avatar-container d-flex my-4">
       <% Avatar.all.each do |a| %>
         <% if @profile.level.present? %>
-          <% if @profile.level.level >= a.level %>
-            <div class="" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= a.id %>">
-              <div class="box">
-                <div class="imgBx">
-                  <%= link_to image_tag("avatars/#{a.name}", class:"active-avatar-hover"), user_avatars_path(avatar_id: a.id), data: {turbo_method: :post} %>
-                </div>
+          <% if @profile.level.level >= a.level%>
+            <div class="avatar-box">
+              <div class="avatars">
+                <%= link_to image_tag("avatars/#{a.name}", class:""), user_avatars_path(avatar_id: a.id), data: {turbo_method: :post} %>
               </div>
             </div>
           <% else %>
             <div class="">
-              <div class="">
-                <div class="grayscale">
-                  <%= link_to_if false, image_tag("avatars/#{a.name}") %>
+              <div class="avatar-box">
+                <div class="inactive-avatar avatars">
+                  <%= link_to_if false, image_tag("avatars/#{a.name}", class: "") %>
                 </div>
               </div>
             </div>
           <% end %>
-         <% end %>
+        <% end %>
       <% end %>
     </div>
   </div>
