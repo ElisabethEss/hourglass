@@ -121,7 +121,7 @@ export default class extends Controller {
     clearInterval(this.myInterval);
     this.state = true;
     let secondspast = Number.parseInt(this.storeTime)*60 - Number.parseInt(this.minutesTarget.innerText)*60 - Number.parseInt(this.secondsTarget.innerText)
-    fetch(`http://localhost:3000/update_study_time?time=${secondspast}`
+    fetch(`${window.location}update_study_time?time=${secondspast}`
     //, { headers: { 'Accept': 'text/plain' } }
     ).then(response => response.text()).then(data => console.log(data))
 
