@@ -125,7 +125,7 @@ Achievement.create!(
   story: "What kind of tea is hard to swallow? Reality!"
 )
 Achievement.create!(
-  name: "Breaks are SOOOOO important",
+  name: "Breaks are sooo important",
   studytime: 0,
   break_time: 60_000,
   description: "Take a break for a total of 1000 minutes.",
