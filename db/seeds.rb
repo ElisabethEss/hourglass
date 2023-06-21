@@ -14,7 +14,7 @@ Avatar.destroy_all
 
 
 # create 10 levels
-(1..10).each do |lv|
+(1..100).each do |lv|
   min_experience = (1000 * (lv - 1) * 1.2) + 1
   max_exp = 1000 * lv * 1.2
   Level.create!(level: lv, experience: min_experience, max_experience: max_exp)
@@ -25,9 +25,10 @@ puts "Levels created"
 # create 5 avatars
 Avatar.create(name: "avatar_1.jpg", level: 1)
 Avatar.create(name: "avatar_2.jpg", level: 2)
-Avatar.create(name: "avatar_3.jpg", level: 3)
-Avatar.create(name: "avatar_4.jpg", level: 4)
-Avatar.create(name: "avatar_5.jpg", level: 5)
+Avatar.create(name: "avatar_3.jpg", level: 4)
+Avatar.create(name: "avatar_4.jpg", level: 6)
+Avatar.create(name: "avatar_5.jpg", level: 8)
+Avatar.create(name: "avatar_6.jpg", level: 10)
 
 puts "Avatars created"
 
