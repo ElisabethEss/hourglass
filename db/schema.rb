@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_20_131456) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_21_113031) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_131456) do
     t.integer "studytime"
     t.string "story"
     t.integer "break_time", default: 0
+    t.string "image_path"
   end
 
   create_table "avatars", force: :cascade do |t|
