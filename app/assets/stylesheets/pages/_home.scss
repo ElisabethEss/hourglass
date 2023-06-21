@@ -70,6 +70,7 @@ body {
   z-index: -2;
  }
 
+
 .timerbox {
   /* From https://css.glass */
 background: rgba(37, 36, 36, 0.2);
@@ -148,10 +149,36 @@ button:hover {
 }
 
 .time-space {
-  // margin-top: 300px;
- margin-bottom: 150px;
+  margin-top: 60px;
+  padding: 40px;
+  background: rgba(112, 197, 231, 0.475);
+  border-radius: 1px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.0px);
+  -webkit-backdrop-filter: blur(5.2px);
+  border: 1px solid #7DB1AE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
+.text-main {
+  color:#513631;
+}
+
+.form-example {
+  color: #513631;
+}
+
+.header-text {
+  padding-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .btn-fant {
   border-radius: 10px;
