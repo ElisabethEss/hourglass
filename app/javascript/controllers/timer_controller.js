@@ -203,10 +203,10 @@ export default class extends Controller {
     clearInterval(this.myIntervalB);
     this.stateB = true;
     let secondspastB = Number.parseInt(this.storeTimeB)*60 - Number.parseInt(this.minutesBTarget.innerText)*60 - Number.parseInt(this.secondsBTarget.innerText)
-    fetch(`http://localhost:3000/update_break_time?time=${secondspastB}`
+    fetch(`${window.location}update_break_time?time=${secondspastB}`
     //, { headers: { 'Accept': 'text/plain' } }
     ).then(response => response.text()).then(data => console.log(data))
-
+    console.log(`${window.location}update_break_time?time=${secondspastB}`)
     console.log('break should be reset now')
     // Reset it to original time, a small notification would be nice
     this.minutesBTarget.innerText = this.storeTimeB
