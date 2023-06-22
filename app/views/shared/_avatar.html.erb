@@ -1,4 +1,4 @@
-<% unless current_user.present? && controller.controller_name == "avatars" %>
+<% unless current_user.nil? || controller.controller_name == "avatars" %>
   <div class="user-avatar">
     <%= image_tag "avatars/#{current_user.profile.avatar.name}" %>
     <p class="zelda-font-level">Lv.1</p>
