@@ -128,7 +128,7 @@ Achievement.create!(
   name: "Breaks are sooo important",
   studytime: 0,
   break_time: 60_000,
-  description: "Take a break for a total of 1000 minutes.",
+  description: "Take a break for 1000 minutes.",
   image_path: "achievements/10achievement.jpg",
   story: "A man got 99 problems and probably about 94 of them from lack of motivation to do anything.
           Although break is important, remember to come back to focus"

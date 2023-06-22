@@ -6,17 +6,20 @@
       <% end %>
     </div>
     <% unless current_user.nil? %>
+      <% visited_avatar = (request.path == "/avatars") ? "visited" : "" %>
       <a href="<%= avatars_path %>">
-        <i class="fa-solid fa-hat-wizard fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Avatars" data-boundary="window"></i>
+        <i class="fa-solid fa-hat-wizard fa-xl nav-icon <%= visited_avatar %>" data-toggle="tooltip" data-bs-placement="left" title="Avatars" data-boundary="window"></i>
       </a>
+      <% visited_achievements = (request.path == "/achievements") ? "visited" : "" %>
       <a href="<%= achievements_path %>">
-        <i class="fa-solid fa-dragon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Achievements" data-boundary="window"></i>
+        <i class="fa-solid fa-dragon fa-xl nav-icon <%= visited_achievements %>" data-toggle="tooltip" data-bs-placement="left" title="Achievements" data-boundary="window"></i>
       </a>
+      <% visited_profiles = (request.path == "/profiles") ? "visited" : "" %>
       <a href="<%= profiles_path %>">
-        <i class="fa-solid fa-scroll fa-xl fa-scrolls nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Profile" data-boundary="window"></i>
+        <i class="fa-solid fa-scroll fa-xl nav-icon <%= visited_profiles %>" data-toggle="tooltip" data-bs-placement="left" title="Profile" data-boundary="window"></i>
       </a>
-    <% end %>
-    <div>
+      <% end %>
+  <div>
       <% if current_user.present? %>
         <%= link_to destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
           <i class="fa-solid fa-dungeon fa-xl nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Logout" data-boundary="window"></i>
