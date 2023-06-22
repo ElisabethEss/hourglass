@@ -1,3 +1,18 @@
+.avatar-edit:hover .zelda-font-level {
+  text-shadow: 0px 1px 16px rgb(0, 0, 0);
+  transition: text-shadow 0.2s ease-in-out;
+}
+
+.avatar-edit {
+  border-radius: 1px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.avatar-edit:hover {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffa54c;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
 .blurred-avatar {
   // background: rgba(199, 179, 231, 0.35);
   // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -82,7 +97,7 @@ body {
 
 .user-avatar img {
   width: 200px;
-  border-radius: 5%;
+  // border-radius: 5%;
   position: relative;
 }
 
@@ -92,9 +107,10 @@ body {
   left: 10px;
   font-family: 'The Wild Breath of Zelda', sans-serif;
   color: #FDD86A;
-  font-size: 56px;
+  font-size: 66px;
   line-height: 34px;
-  -webkit-text-stroke: 1px #1e4021;
+  -webkit-text-stroke: 1px #DE785F;
+  // text-shadow: 1px 2px 5px rgb(0, 0, 0);
 }
 
 @media (min-width: 930px) and (max-width: 1400px) {

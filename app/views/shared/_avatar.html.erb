@@ -1,6 +1,8 @@
 <% unless current_user.nil? || controller.controller_name == "avatars" %>
-  <div class="user-avatar">
-    <%= image_tag "avatars/#{current_user.profile.avatar.name}" %>
-    <p class="zelda-font-level">Lv.1</p>
-  </div>
+  <a href="<%= avatars_path %>">
+    <div class="user-avatar avatar-edit clickable">
+      <%= image_tag "avatars/#{current_user.profile.avatar.name}" %>
+      <p class="zelda-font-level">Lv.3</p>
+    </div>
+  </a>
 <% end %>
