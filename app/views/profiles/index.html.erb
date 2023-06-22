@@ -1,28 +1,34 @@
 <div class="profile-big-box">
   <div class="row p-0">
     <div class="col-6 p-0">
-      <div class="profile-small-box">
+      <div class="profile-small-box blurred-box">
         <span class="zelda-font-small">Total study time</span>
         <br>
         <span class="text-profile"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></span>
       </div>
     </div>
     <div class="col-6 p-0">
-      <div class="profile-small-box">
+      <div class="profile-small-box blurred-box">
         <span class="zelda-font-small">Total break time</span>
         <br>
         <span class="text-profile"><%= "#{@total_break_hours}hr #{@total_break_minutes}min" %></span>
       </div>
     </div>
     <div class="col-6 p-0">
-      <div class="profile-small-box">
+      <div class="profile-small-box blurred-box">
         <span class="zelda-font-small">Level</span>
         <br>
-       <span class="text-profile text-profile"><%= "#{@profile.level}" %></span>
+       <span class="text-profile">
+  <% if current_user.profile.experience > Level.last.max_experience %>
+    Lv.max
+  <% else %>
+    Lv.<%= @profile.level.level %>
+  <% end %>
+</span>
       </div>
     </div>
     <div class="col-6 p-0">
-      <div class="profile-small-box">
+      <div class="profile-small-box blurred-box">
         <span class="zelda-font-small">Experience</span>
         <br>
         <span class="text-profile text-profile"><%= "#{@profile.experience}" %></span>
@@ -38,9 +44,3 @@
     <i class="fa-solid fa-book-skull fa-xl fa-scrolls nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Delete profile" data-boundary="window"></i>
   <% end %>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
