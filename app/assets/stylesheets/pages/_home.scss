@@ -14,7 +14,7 @@ body {
   // background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
   background-size: cover;
   margin: auto;
-  max-width: 620px;
+  width: 620px;
   flex-grow: 1;
 
   // background image - house
@@ -136,7 +136,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color:  #ffcc32;
+  color:  #513631;
   //background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(5.0px);
   border-radius: 16px;

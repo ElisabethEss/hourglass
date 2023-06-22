@@ -10,10 +10,15 @@
   </div>
   <%# All avatars %>
   <div>
-  <div>
     <div class="avatar-container d-flex my-4">
       <% Avatar.all.each do |a| %>
-        <% if @profile.level.present? %>
+        <% if @profile.experience > Level.last.max_experience %>
+          <div class="avatar-box">
+            <div class="avatars">
+              <%= link_to image_tag("avatars/#{a.name}", class:""), user_avatars_path(avatar_id: a.id), data: {turbo_method: :post} %>
+            </div>
+          </div>
+        <% elsif @profile.level.present? %>
           <% if @profile.level.level >= a.level%>
             <div class="avatar-box">
               <div class="avatars">
