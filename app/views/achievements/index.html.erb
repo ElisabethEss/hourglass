@@ -1,7 +1,5 @@
 <div class="container ">
   <%# code for achiements to show %>
-
-  
 <div class="achivements-container">
 <% @achievements.each do |achievement| %>
   <% if @total_time >= achievement.studytime %>
@@ -13,9 +11,9 @@
       </div>
       <div class="col-8">
         <div class="text-container">
-          <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
-          <br><br>
-          <%= achievement.description %>
+        <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
+        <br><br>
+        <%= content_tag(:span, achievement.description, class: "text-profile") %>
         </div>
       </div>
     </div>
@@ -24,7 +22,7 @@
       <div class="modal-dialog">
         <div class="modal-content achievement-modal-content modal-box">
           <div class="modal-header modal-box-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel"><%= achievement.name %></h1>
+            <h1 class="modal-title zelda-font-medium-modal" id="exampleModalLabel"><%= achievement.name %></h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -44,7 +42,7 @@
         <div class="text-container">
           <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
           <br><br>
-          <%= achievement.description %>
+          <%= content_tag(:span, achievement.description, class: "text-profile") %>
         </div>
       </div>
     </div>
@@ -52,25 +50,4 @@
 <% end %>
 </div>
 </div>
-
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-  <div class="firefly"></div>
-
-
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>

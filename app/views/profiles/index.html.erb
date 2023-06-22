@@ -1,31 +1,48 @@
-<div class="container profile-body">
-  <div class="">
-    <%# avatar %>
-    <div class="">
-      <% if current_user.present? && current_user.profile.user_avatar.present? %>
-        <%= image_tag("avatars/#{current_user.profile.user_avatar.avatar.name}" , class: "rounded, main-avatar-picture") %>
-      <% end %>
-    </div>
-    <br>
-
-    <%# Statistics %>
-    <div class="statistics-card">
-      <div class=""><%= "STATISTICS" %></div>
-      <div class="d-flex flex-wrap">
-        <div class=""><%= "Total study time" %><br><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></div>
-        <div class=""><%= "Total break time" %><br><%= "#{@total_break_hours}hr #{@total_break_minutes}min" %></div>
-        <div class=""><%= "Lv.#{@profile.level}"%></div>
-        <div class=""><%= "#{@profile.experience}exp"%></div>
-        <%# Completed podomoros, completed tasks, average podomoro per week/month, most productive day(calender), amount of podomoros this week/month %>
+<div class="profile-big-box">
+  <div class="row p-0">
+    <div class="col-6 p-0">
+      <div class="profile-small-box blurred-box">
+        <span class="zelda-font-small">Total study time</span>
+        <br>
+        <span class="text-profile"><%= "#{@total_study_hours}hr #{@total_study_minutes}min" %></span>
       </div>
     </div>
 
-      <%# delete profile %>
-    <br>
-    <div>
-      <%= link_to profile_path(current_user.profile), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-decoration-none text-btn-acheievement" do %>
-        <i class="fa-solid fa-book-skull fa-xl" style="color: #ffffff;"></i><%= "Delete Profile" %>
-      <% end %>
+    <div class="col-6 p-0">
+      <div class="profile-small-box blurred-box">
+        <span class="zelda-font-small">Total break time</span>
+        <br>
+        <span class="text-profile"><%= "#{@total_break_hours}hr #{@total_break_minutes}min" %></span>
+
+      </div>
+    </div>
+    <div class="col-6 p-0">
+      <div class="profile-small-box blurred-box">
+        <span class="zelda-font-small">Level</span>
+        <br>
+       <span class="text-profile">
+  <% if current_user.profile.experience > Level.last.max_experience %>
+    Lv.max
+  <% else %>
+    Lv.<%= @profile.level.level %>
+  <% end %>
+</span>
+      </div>
+    </div>
+    <div class="col-6 p-0">
+      <div class="profile-small-box blurred-box">
+        <span class="zelda-font-small">Experience</span>
+        <br>
+        <span class="text-profile text-profile"><%= "#{@profile.experience}" %></span>
+      </div>
     </div>
   </div>
+</div>
+
+<br>
+
+<div class="btn-delete-position">
+  <%= link_to profile_path(current_user.profile), data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-decoration-none text-btn-achievement" do %>
+    <i class="fa-solid fa-book-skull fa-xl fa-scrolls nav-icon" data-toggle="tooltip" data-bs-placement="left" title="Delete profile" data-boundary="window"></i>
+  <% end %>
 </div>

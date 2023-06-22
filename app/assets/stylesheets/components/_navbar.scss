@@ -2,16 +2,6 @@
   flex-grow: 0;
 }
 
-.level {
-  font-family: fantasy;
-  font-size: 24px;
-  font-style: italic;
-  font-variant: small-caps;
-  font-weight: bold;
-  line-height: 22px;
-}
-
-
 .btn-navbar-new {
   background: #262d3897;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.25);
@@ -48,12 +38,18 @@
 .nav-icon:hover {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffae4c;
   transition: text-shadow 0.2s ease-in-out;
-}
-
-.nav-icon:hover {
   color: #FDD86A;
   -webkit-text-stroke: 1px #DE785F;
+}
 
+// .nav-icon:hover {
+//   color: #FDD86A;
+//   -webkit-text-stroke: 1px #DE785F;
+// }
+
+.visited {
+  color: #FDD86A;
+  -webkit-text-stroke: 1px #DE785F;
 }
 
 .nav-width {

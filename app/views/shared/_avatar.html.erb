@@ -1,0 +1,12 @@
+<% unless current_user.nil? || controller.controller_name == "avatars" %>
+  <a href="<%= avatars_path %>">
+    <div class="user-avatar avatar-edit clickable">
+      <%= image_tag "avatars/#{current_user.profile.avatar.name}" %>
+      <% if current_user.profile.experience > Level.last.max_experience %>
+        <p class="zelda-font-level">Lv.max</p>
+      <% else %>
+        <p class="zelda-font-level"><%= "Lv.#{current_user.profile.level.level}" %></p>
+      <% end %>
+    </div>
+  </a>
+<% end %>

@@ -1,3 +1,18 @@
+.avatar-edit:hover .zelda-font-level {
+  text-shadow: 0px 1px 16px rgb(0, 0, 0);
+  transition: text-shadow 0.2s ease-in-out;
+}
+
+.avatar-edit {
+  border-radius: 1px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+.avatar-edit:hover {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffa54c;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
 .blurred-avatar {
   // background: rgba(199, 179, 231, 0.35);
   // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -14,6 +29,33 @@
   height: 500px;
   width: 500px;
   border-radius: 16px;
+  position: relative;
+}
+
+.main-avatar .avatar-story {
+  opacity: 0;
+  visibility: hidden;
+  color: antiquewhite;
+  font-family: 'REFOLTER', sans-serif;
+  position: absolute;
+  top: 5vh;
+  left: 2.5vw;
+  height: 400px;
+  width: 400px;
+  font-size: 15px;
+  line-height: 1.8;
+  word-spacing: 2px;
+  transition: opacity 1s;
+}
+
+.main-avatar:hover .img-filter {
+  transition: all 1s ease;
+  filter: brightness(0.5);
+}
+
+.main-avatar:hover > .avatar-story{
+  visibility: visible;
+  opacity: 1;
 }
 
 .avatar-box {
@@ -39,4 +81,126 @@
 
 .inactive-avatar {
   filter: grayscale(100%) blur(4px);
+}
+
+// css for small avatar and level
+
+body {
+  position: relative;
+}
+
+.user-avatar {
+  position: absolute;
+  top: 200px;
+  left: -14vw;
+}
+
+.user-avatar img {
+  width: 200px;
+  // border-radius: 5%;
+  position: relative;
+}
+
+.zelda-font-level {
+  position: absolute;
+  top: 170px;
+  left: 10px;
+  font-family: 'The Wild Breath of Zelda', sans-serif;
+  color: #FDD86A;
+  font-size: 66px;
+  line-height: 34px;
+  -webkit-text-stroke: 1px #DE785F;
+  // text-shadow: 1px 2px 5px rgb(0, 0, 0);
+}
+
+@media (min-width: 930px) and (max-width: 1400px) {
+  .user-avatar img{
+    width: 150PX;
+    top: 0vh;
+    left: 0vw;
+  }
+
+  .zelda-font-level {
+    top: 13vh;
+    left: 1vw;
+    font-size: 40px;
+  }
+}
+
+// .user-avatar img{
+//   width: 200px;
+//   border-radius: 5%;
+//   position: absolute;
+//   position: relative;
+//   top: 20vh;
+//   left: 20vw;
+// }
+
+// .user-avatar .zelda-font-level.absolute {
+//   position: absolute;
+//   top: 38vh;
+//   left: 21vw;
+//   font-size: 56px;
+// }
+// }
+
+// @media (min-width: 1281px) and (max-width: 1499px) {
+//   .user-avatar img{
+//     width: 150px;
+//     border-radius: 5%;
+//     position: absolute;
+//     top: 20vh;
+//     left: 15vw;
+//   }
+
+//   .user-avatar .zelda-font-level {
+//     position: absolute;
+//     top: 33vh;
+//     left: 16vw;
+//     font-size: 45px;
+//   }
+// }
+
+// @media (min-width: 1170px) and (max-width: 1280px) {
+//   .user-avatar img{
+//     width: 150px;
+//     border-radius: 5%;
+//     position: absolute;
+//     top: 20vh;
+//     left: 10vw;
+//   }
+
+//   .user-avatar .zelda-font-level {
+//     position: absolute;
+//     top: 33vh;
+//     left: 11vw;
+//     font-size: 40px;
+//   }
+// }
+
+// @media (min-width: 930px) and (max-width: 1169px) {
+//   .user-avatar img{
+//     width: 100px;
+//     border-radius: 5%;
+//     position: absolute;
+//     top: 20vh;
+//     left: 5vw;
+//   }
+
+//   .user-avatar .zelda-font-level {
+//     position: absolute;
+//     top: 28vh;
+//     left: 6vw;
+//     font-size: 30px;
+//   }
+// }
+
+@media (max-width: 1100px) {
+  .user-avatar img{
+    display: none;
+  }
+
+  .user-avatar .zelda-font-level {
+    display: none;
+  }
 }
