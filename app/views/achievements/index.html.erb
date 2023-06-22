@@ -1,54 +1,83 @@
 <div class="container ">
   <%# code for achiements to show %>
 <div class="achivements-container">
-<% @achievements.each do |achievement| %>
-  <% if @total_time >= achievement.studytime %>
-    <div class="row row-container blurred-box clickable achi-hover" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
-      <div class="col-4">
-        <div class="image-container">
-        <%= image_tag("#{achievement.image_path}", class:"placeholder-image") %>
-        </div>
-      </div>
-      <div class="col-8">
-        <div class="text-container">
-        <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
-        <br><br>
-        <%= content_tag(:span, achievement.description, class: "text-profile") %>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade modal-background" id="achievements-modal-<%= achievement.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content achievement-modal-content modal-box">
-          <div class="modal-header modal-box-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel"><%= achievement.name %></h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= achievement.story %>
+  <% @achievements.each do |achievement| %>
+    <% if achievement.break_time == 0 && @total_time >= achievement.studytime %>
+      <div class="row row-container blurred-box clickable achi-hover" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
+        <div class="col-4">
+          <div class="image-container">
+          <%= image_tag("#{achievement.image_path}", class:"placeholder-image") %>
           </div>
         </div>
-      </div>
-    </div>
-    <% else %>
-    <div class="row row-container grayscale blurred-box">
-      <div class="col-4">
-        <div class="image-container">
-          <%= image_tag(achievement.image_path, class:"placeholder-image") %>
-        </div>
-      </div>
-      <div class="col-8">
-        <div class="text-container">
+        <div class="col-8">
+          <div class="text-container">
           <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
           <br><br>
           <%= content_tag(:span, achievement.description, class: "text-profile") %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
-<% end %>
-</div>
+      <!-- Modal -->
+      <div class="modal fade modal-background" id="achievements-modal-<%= achievement.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content achievement-modal-content modal-box">
+            <div class="modal-header modal-box-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><%= achievement.name %></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <%= achievement.story %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% elsif achievement.studytime == 0 && @breaktime >= achievement.break_time %>
+        <div class="row row-container blurred-box clickable achi-hover" data-bs-toggle="modal" data-bs-target="#achievements-modal-<%= achievement.id %>">
+          <div class="col-4">
+            <div class="image-container">
+              <%= image_tag("#{achievement.image_path}", class:"placeholder-image") %>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="text-container">
+              <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
+              <br><br>
+              <%= content_tag(:span, achievement.description, class: "text-profile") %>
+            </div>
+          </div>
+        </div>
+      <!-- Modal -->
+        <div class="modal fade modal-background" id="achievements-modal-<%= achievement.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content achievement-modal-content modal-box">
+              <div class="modal-header modal-box-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><%= achievement.name %></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= achievement.story %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="row row-container grayscale blurred-box">
+          <div class="col-4">
+            <div class="image-container">
+              <%= image_tag(achievement.image_path, class:"placeholder-image") %>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="text-container">
+              <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
+              <br><br>
+              <%= content_tag(:span, achievement.description, class: "text-profile") %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
   <div class="firefly"></div>

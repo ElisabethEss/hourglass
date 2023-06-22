@@ -43,7 +43,7 @@ puts "User created"
 
 user.profile.update!(
   total_study_time: 3300,
-  total_break_time: 200,
+  total_break_time: 300,
   experience: 3599
 )
 
