@@ -4,6 +4,7 @@
     <div class="main-avatar p-4">
       <% if current_user.present? && current_user.profile.user_avatar.present? %>
         <%= image_tag("avatars/#{@profile.avatar.name}", class: "main-avatar", style: 'height: 100%; width: 100%; object-fit: contain;') %>
+        <div class="p-4">avatar story</div>
       <% end %>
     </div>
   </div>
