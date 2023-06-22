@@ -1,16 +1,21 @@
 // specific css for your homepage
 
+html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: 'Fira Sans', sans-serif;
   font-size: 20px;
   letter-spacing: 0.8px;
-  min-height: 100vh;
   color: black;
   // background-image: linear-gradient(-20deg, #025159 0%, #733b36 100%);
   background-size: cover;
   margin: auto;
-  height: 100%;
   max-width: 620px;
+  flex-grow: 1;
 
   // background image - house
   background-image: url(desert-tree.jpg);
@@ -23,20 +28,12 @@ body {
      background-position: center center;
 }
 
-.zelda-cta {
-  font-family: 'The Wild Breath of Zelda', sans-serif;
-  color: #513631;
-  font-size: 48px;
-  // line-height: 28px;
-  //-webkit-text-stroke: 1px #DE785F;
-  // margin-top: 25px;
+.glowing {
+  -webkit-box-shadow: 12px -5px 15px 5px #FDD86A, 12px 10px 15px 7px #DE785F, -10px 10px 15px 7px #F3B285, -10px -7px 27px 1px #FFB095, 5px 5px 15px 5px rgba(0,0,0,0);
+  box-shadow: 12px -5px 15px 5px #FDD86A, 12px 10px 15px 7px #DE785F, -10px 10px 15px 7px #F3B285, -10px -7px 27px 1px #FFB095, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
-#button-timer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .home-video-wrapper {
   height: 100vh;
@@ -85,14 +82,18 @@ body {
   z-index: -2;
  }
 
+.timer-buttons {
+  width: 70%;
+}
+
+.timer-buttons-main {
+  width: 50%;
+}
 
 .timerbox {
   /* From https://css.glass */
 background: rgba(37, 36, 36, 0.2);
 border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
 border: 1px solid rgba(37, 36, 36, 0.42);
 }
 
@@ -114,37 +115,62 @@ button:hover {
 
 
 .counter-container {
-  // border: 3px solid darkslategrey;
-  //border-radius: 50%;
-  // height: 200px;
-  // width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: beige;
 }
 
 .timer-header {
   font-weight: bold;
 }
 
+.break-header {
+  font-weight: bold;
+  color: #513631;
+  font-size: 38px;
+}
+
 .main-card {
-  // background-color: #d9d9d9;
-  // border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
   color:  #ffcc32;
-
-  background: rgba(255, 255, 255, 0.2);
+  //background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5.0px);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(37, 36, 36, 0.42);
+  margin-top: 60px;
+  margin-bottom: 150px;
+  padding: 40px 50px 50px 50px;
+  background: rgba(112, 197, 231, 0.475);
+  border-radius: 1px;
+  border-color: rgba(112, 197, 231, 0.251);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.padding {
+  padding-bottom: 20px;
+}
+
+.button-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-example input[type="text"] {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+  color: #513631;
 }
 
 .container {
@@ -165,14 +191,11 @@ button:hover {
 
 .time-space {
   margin-top: 60px;
-  padding: 40px;
+  margin-bottom: 150px;
+  padding: 40px 50px 50px 50px;
   background: rgba(112, 197, 231, 0.475);
   border-radius: 1px;
   border-color: rgba(112, 197, 231, 0.251);
-  box-shadow: 15 4px 30px rgba(112, 197, 231, 0.251);
-  backdrop-filter: blur(5.0px);
-  -webkit-backdrop-filter: blur(5.2px);
-  border: 1px solid #7DB1AE;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,6 +204,15 @@ button:hover {
 
 .text-main {
   color:#513631;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.text-timer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  color:#513631;
+  font-weight: 600;
 }
 
 .form-example {
