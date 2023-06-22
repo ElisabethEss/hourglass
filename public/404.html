@@ -4,6 +4,7 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+
   .rails-default-error-page {
     background-color: #EFEFEF;
     color: #2E2F30;
@@ -51,17 +52,173 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+.html {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.8px;
+  color: black;
+  background-size: cover;
+  margin: auto;
+  width: 620px;
+  flex-grow: 1;
+  background-image: url(desert-tree.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+.timer-buttons {
+  width: 70%;
+}
+
+.timer-buttons-main {
+  width: 50%;
+}
+
+button {
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  background: none;
+  outline: none;
+  color: black;
+}
+
+button:hover {
+  color: #90c0d1;
+}
+
+
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.timer-header {
+  font-weight: bold;
+}
+
+.break-header {
+  font-weight: bold;
+  color: #513631;
+  font-size: 38px;
+}
+
+.main-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:  #513631;
+  backdrop-filter: blur(5.0px);
+  border-radius: 16px;
+  margin-top: 60px;
+  margin-bottom: 150px;
+  padding: 40px 50px 50px 50px;
+  background: rgba(112, 197, 231, 0.475);
+  border-radius: 1px;
+  border-color: rgba(112, 197, 231, 0.251);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.padding {
+  padding-bottom: 20px;
+}
+
+.button-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-example input[type="text"] {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Fira Sans', sans-serif;
+  color: #513631;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-card {
+  margin-top: 10px;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 4rem;
+}
+
+.time-space {
+  margin-top: 60px;
+  margin-bottom: 150px;
+  padding: 40px 50px 50px 50px;
+  background: rgba(112, 197, 231, 0.475);
+  border-radius: 1px;
+  border-color: rgba(112, 197, 231, 0.251);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text-main {
+  color:#513631;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+
+
+.error-background {
+  background-size: cover;
+  margin: auto;
+  width: 620px;
+  flex-grow: 1;
+  background-image: url("desert-tree1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body class="error-background">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+  <div>
+    <div class="main-card">
+      <div>
+        <h1>The tome you seekeed has vanished from sight!</h1>
+        <p>Perhaps your hand erred in inscribing the address, or mayhap the page has embarked upon a clandestine sojourn to distant realms!</p>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
