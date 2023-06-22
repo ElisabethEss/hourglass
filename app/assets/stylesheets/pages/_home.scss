@@ -23,6 +23,21 @@ body {
      background-position: center center;
 }
 
+.zelda-cta {
+  font-family: 'The Wild Breath of Zelda', sans-serif;
+  color: #513631;
+  font-size: 48px;
+  // line-height: 28px;
+  //-webkit-text-stroke: 1px #DE785F;
+  // margin-top: 25px;
+}
+
+#button-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .home-video-wrapper {
   height: 100vh;
   display: flex;
@@ -153,7 +168,8 @@ button:hover {
   padding: 40px;
   background: rgba(112, 197, 231, 0.475);
   border-radius: 1px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-color: rgba(112, 197, 231, 0.251);
+  box-shadow: 15 4px 30px rgba(112, 197, 231, 0.251);
   backdrop-filter: blur(5.0px);
   -webkit-backdrop-filter: blur(5.2px);
   border: 1px solid #7DB1AE;

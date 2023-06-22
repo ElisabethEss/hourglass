@@ -35,12 +35,24 @@
   line-height: 34px;
   -webkit-text-stroke: 1px #DE785F;
   margin-top: 25px;
+  text-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.zelda-font:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffae4c;
+  transition: text-shadow 0.2s ease-in-out;
 }
 
 .nav-icon {
   color: #ffffff;
   font-size: 36px;
   margin-top: 30px;
+  text-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.nav-icon:hover {
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffae4c;
+  transition: text-shadow 0.2s ease-in-out;
 }
 
 .nav-icon:hover {
@@ -55,58 +67,14 @@
   align-items: center;
 }
 
-@media (min-width: 1715px) {
-  .user-avatar img{
-    width: 200px;
-    border-radius: 5%;
-    position: absolute;
-    top: 20vh;
-    left: 20vw;
-  }
-}
 
-@media (min-width: 1500px) and (max-width: 1714px) {
-  .user-avatar img{
-    width: 200px;
-    border-radius: 5%;
-    position: absolute;
-    top: 20vh;
-    left: 15vw;
-  }
-}
-
-@media (min-width: 1281px) and (max-width: 1499px) {
-  .user-avatar img{
-    width: 150px;
-    border-radius: 5%;
-    position: absolute;
-    top: 20vh;
-    left: 15vw;
-  }
-}
-
-@media (min-width: 1170px) and (max-width: 1280px) {
-  .user-avatar img{
-    width: 150px;
-    border-radius: 5%;
-    position: absolute;
-    top: 20vh;
-    left: 10vw;
-  }
-}
-
-@media (min-width: 930px) and (max-width: 1169px) {
-  .user-avatar img{
-    width: 100px;
-    border-radius: 5%;
-    position: absolute;
-    top: 20vh;
-    left: 5vw;
-  }
-}
-
-@media (max-width: 929px) {
-  .user-avatar img{
-    display: none;
-  }
+.zelda-font-small {
+  font-family: 'The Wild Breath of Zelda', sans-serif;
+  color: #FDD86A;
+  font-size: 36px;
+  line-height: 34px;
+  margin-top: 20px;
+  text-shadow: 1px 4px 8px rgba(0, 0, 0, 0.6);
+  // -webkit-text-stroke: 1px rgb(99, 47, 10);
+  // -webkit-text-stroke: 1px rgba(234, 202, 58, 0.863);
 }
