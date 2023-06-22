@@ -1,7 +1,5 @@
 <div class="container ">
   <%# code for achiements to show %>
-
-  
 <div class="achivements-container">
 <% @achievements.each do |achievement| %>
   <% if @total_time >= achievement.studytime %>
@@ -13,9 +11,9 @@
       </div>
       <div class="col-8">
         <div class="text-container">
-          <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
-          <br><br>
-          <%= achievement.description %>
+        <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
+        <br><br>
+        <%= content_tag(:span, achievement.description, class: "text-profile") %>
         </div>
       </div>
     </div>
@@ -44,7 +42,7 @@
         <div class="text-container">
           <%= content_tag(:span, achievement.name, class: "zelda-font-small") %>
           <br><br>
-          <%= achievement.description %>
+          <%= content_tag(:span, achievement.description, class: "text-profile") %>
         </div>
       </div>
     </div>
