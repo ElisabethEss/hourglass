@@ -46,9 +46,9 @@
   background: rgba(112, 197, 231, 0.475);
   border-radius: 1px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-  // backdrop-filter: blur(5.0px);
+  backdrop-filter: blur(5.0px);
   -webkit-backdrop-filter: blur(5.2px);
-  border: 1px solid #7DB1AE;
+  border-color: rgba(112, 197, 231, 0.251);
 }
 
 .clickable {
@@ -74,6 +74,7 @@ p {
   box-shadow: 0 4px 30px rgba(203, 158, 99, 0.257);
   backdrop-filter: blur(5.0px);
   -webkit-backdrop-filter: blur(5.2px);
+  padding: 15px;
   // border: 1px solid #edba4c;
 }
 
