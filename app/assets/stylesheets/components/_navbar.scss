@@ -38,12 +38,14 @@
 .nav-icon:hover {
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffae4c;
   transition: text-shadow 0.2s ease-in-out;
-}
-
-.nav-icon:hover {
   color: #FDD86A;
   -webkit-text-stroke: 1px #DE785F;
 }
+
+// .nav-icon:hover {
+//   color: #FDD86A;
+//   -webkit-text-stroke: 1px #DE785F;
+// }
 
 .visited {
   color: #FDD86A;

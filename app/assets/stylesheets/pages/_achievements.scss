@@ -9,6 +9,7 @@
   max-height: 100%;
   border-radius: 1px;
   box-shadow: 8px 7px 0 0 #FDD86A;
+  // box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 
 .text-container {
@@ -85,7 +86,7 @@ p {
 }
 
 .achi-hover:hover {
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffe74c;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffa54c;
   transition: box-shadow 0.2s ease-in-out;
 }
 
